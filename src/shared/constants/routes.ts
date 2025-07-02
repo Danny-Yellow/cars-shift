@@ -1,3 +1,6 @@
 export const ROUTES = {
-    CATALOG: 'catalog'
+    CATALOG: 'catalog',
+    PROFILE: 'profile',
+    ORDERS: 'orders',
+    LOGIN: 'login'
 }
