@@ -3,12 +3,12 @@ import { Link } from '@src/layers/ui';
 import { Container } from '@src/layers/ui/Container';
 import { IconButton } from '@src/layers/ui/IconButton';
 import { ROUTES } from '@src/shared/constants';
+import { useTheme } from '@src/shared/hooks';
 import { Link as RouterLink, useLocation } from 'react-router';
 
 export const TopNavigation = ({ isAuth, logout }: { isAuth: boolean; logout: () => void }) => {
 	const { pathname } = useLocation();
-
-	const isLight: boolean = true;
+	const { isLight, toggleTheme } = useTheme();
 
 	return (
 		<nav className="border-gray-70 grid h-[82px] items-center border-b-[1px]">
@@ -35,11 +35,11 @@ export const TopNavigation = ({ isAuth, logout }: { isAuth: boolean; logout: () 
 						</Link>
 					)}
 					{isLight ? (
-						<IconButton>
+						<IconButton onClick={() => toggleTheme('dark')}>
 							<Crescent />
 						</IconButton>
 					) : (
-						<IconButton>
+						<IconButton onClick={() => toggleTheme('light')}>
 							<Sun />
 						</IconButton>
 					)}

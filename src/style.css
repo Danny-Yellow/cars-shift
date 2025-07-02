@@ -20,3 +20,7 @@ html {
 	--color-gray-50: oklch(0.5413 0.0337 257.79);
 	--color-gray-30: oklch(0.368 0.0334 257.1);
 }
+
+.dark {
+	@apply bg-black text-white;
+}
