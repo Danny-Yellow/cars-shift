@@ -52,7 +52,7 @@ export const Button = ({
 		{...props}
 	>
 		{isLoading && (
-			<span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent align-middle" />
+			<span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent align-middle mr-2" />
 		)}
 		{startIcon && <span>{startIcon}</span>}
 		{children}

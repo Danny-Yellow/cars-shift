@@ -1,4 +1,4 @@
-import type { Car } from '@src/shared/types/car';
+import type { Car } from '@src/shared/types';
 
 import { getCars } from '@src/shared/api/entities/cars';
 import { createEffect, createStore } from 'effector';
