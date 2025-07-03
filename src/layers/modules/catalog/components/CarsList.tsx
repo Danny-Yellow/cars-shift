@@ -2,9 +2,11 @@ import { Button, Typography } from '@src/layers/ui';
 import { ENV } from '@src/shared/constants';
 import { formatNumberWithSpaces } from '@src/shared/utils';
 import { useUnit } from 'effector-react';
-import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 
-import { $carsList, fetchCarsFx } from '../store/carsListStore';
+import { $carsList, $hasMore, fetchCarsFx, setNextPage } from '../store/carsListStore';
+import { CarCardSkeleton } from './CarCardSkeleton';
+import { useEffect } from 'react';
 
 const TRANSMISSIONS_RU = {
 	automatic: 'Автомат',
@@ -12,19 +14,23 @@ const TRANSMISSIONS_RU = {
 };
 
 export const CarsList = () => {
-	const carsList = useUnit($carsList);
+	const { ref, inView } = useInView();
+
+	const [carsList, hasMore, isLoading] = useUnit([$carsList, $hasMore, fetchCarsFx.pending]);
 
 	useEffect(() => {
-		fetchCarsFx();
-	}, []);
+		if (inView && !isLoading && hasMore) {
+			setNextPage();
+		}
+	}, [inView, isLoading, hasMore]);
 
 	return (
-		<div className="grid grid-cols-3 gap-y-12 gap-x-8">
+		<div className="grid grid-cols-3 gap-x-8 gap-y-12">
 			{carsList?.map((car) => (
-				<article key={car.id} className="max-w-72">
+				<article key={car.id}>
 					<img
 						alt={car.name}
-						className="mb-6 h-56 w-full object-contain"
+						className="mb-6 h-56 w-full rounded-2xl object-contain"
 						src={ENV.BASE_URL + car.media[0]?.url}
 					/>
 					<Typography className="mb-2" tag="h2" variant="h3">
@@ -40,6 +46,8 @@ export const CarsList = () => {
 					<Button>Выбрать</Button>
 				</article>
 			))}
+			{isLoading && <CarCardSkeleton count={3} />}
+			{!isLoading && <div ref={ref} />}
 		</div>
 	);
 };

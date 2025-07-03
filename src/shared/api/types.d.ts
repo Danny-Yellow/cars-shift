@@ -4,8 +4,16 @@ interface AxiosRequestConfig<Params = undefined, Data = undefined> {
 	params?: Params;
 }
 
-interface DefaultResponse<Data> {
+interface DefaultResponse<Data, Meta = undefined> {
 	data: Data;
+	meta?: Meta;
 	reason: string;
 	success: boolean;
+}
+
+interface Meta {
+	totalPages: number;
+	limit: number;
+	page: number;
+	total: number;
 }

@@ -20,6 +20,7 @@
 		"effector-react": "^23.3.0",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
+		"react-loading-skeleton": "^3.5.0",
 		"react-router": "^7.6.3"
 	},
 	"devDependencies": {
@@ -45,6 +46,7 @@
 		"prettier": "^3.6.2",
 		"prettier-plugin-tailwindcss": "^0.6.13",
 		"progress-bar-webpack-plugin": "^2.1.0",
+		"react-intersection-observer": "^9.16.0",
 		"style-loader": "^4.0.0",
 		"tailwindcss": "^4.1.11",
 		"ts-loader": "^9.5.2",
