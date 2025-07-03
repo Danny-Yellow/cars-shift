@@ -1,12 +1,17 @@
+import { LOCAL_STORAGE_KEYS } from '@src/shared/constants';
 import { useState } from 'react';
 
-export const useTheme = () => {
-	const [theme, setTheme] = useState<'dark' | 'light'>(localStorage.theme || 'light');
+type Theme = 'dark' | 'light';
 
-	const toggleTheme = (mode: 'dark' | 'light') => {
+export const useTheme = () => {
+	const [theme, setTheme] = useState<Theme>(
+		(localStorage.getItem(LOCAL_STORAGE_KEYS.THEME) as Theme) || 'light',
+	);
+
+	const toggleTheme = (mode: Theme) => {
 		setTheme(mode);
 
-		localStorage.theme = mode;
+		localStorage.setItem(LOCAL_STORAGE_KEYS.THEME, mode);
 
 		document.documentElement.classList.toggle('dark', mode === 'dark');
 	};

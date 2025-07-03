@@ -10,7 +10,7 @@ interface LayoutProps {
 export const RootLayout = ({ header }: LayoutProps) => (
 	<>
 		<header>{header}</header>
-		<main>
+		<main className='mt-12'>
 			<Container>
 				<Outlet />
 			</Container>
