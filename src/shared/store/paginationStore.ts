@@ -1,7 +1,7 @@
 import { createEvent, createStore } from 'effector';
 
 
-export function createPagination(limit: number = 6) {
+export const createPagination = (limit: number = 6) => {
   const setNextPage = createEvent();
   const resetPagination = createEvent();
 

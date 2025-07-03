@@ -1,4 +1,4 @@
-import { Crescent, Exit, Logo, Sun, Time, User } from '@src/layers/components/Icons';
+import { Crescent, Exit, Logo, Sun, Time, User } from '@src/layers/components/icons';
 import { Link } from '@src/layers/ui';
 import { Container } from '@src/layers/ui/Container';
 import { IconButton } from '@src/layers/ui/IconButton';
@@ -6,7 +6,12 @@ import { ROUTES } from '@src/shared/constants';
 import { useTheme } from '@src/shared/hooks';
 import { Link as RouterLink, useLocation } from 'react-router';
 
-export const TopNavigation = ({ isAuth, logout }: { isAuth: boolean; logout: () => void }) => {
+interface TopNavigationProps {
+	isAuth: boolean;
+	logout: () => void;
+}
+
+export const TopNavigation = ({ isAuth, logout }: TopNavigationProps) => {
 	const { pathname } = useLocation();
 	const { isLight, toggleTheme } = useTheme();
 

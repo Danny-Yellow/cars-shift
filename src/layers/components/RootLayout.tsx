@@ -3,11 +3,11 @@ import type { ReactNode } from 'react';
 import { Container } from '@src/layers/ui/Container';
 import { Outlet } from 'react-router';
 
-interface LayoutProps {
+interface RootLayoutProps {
 	header: ReactNode;
 }
 
-export const RootLayout = ({ header }: LayoutProps) => (
+export const RootLayout = ({ header }: RootLayoutProps) => (
 	<>
 		<header>{header}</header>
 		<main className='mt-12'>
