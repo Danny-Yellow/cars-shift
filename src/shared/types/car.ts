@@ -9,7 +9,7 @@ export interface BaseCar {
 	transmission: 'automatic' | 'manual';
 }
 
-export interface Car extends BaseCar{
+export interface Car extends BaseCar {
 	id: string;
 	location: string;
 	name: string;
@@ -18,7 +18,7 @@ export interface Car extends BaseCar{
 	media: {
 		url: string;
 		isCover: boolean;
-	};
+	}[];
 	meta: {
 		total: number;
 		page: number;

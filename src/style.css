@@ -10,6 +10,8 @@ html {
     @apply text-black;
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
 	--color-black: oklch(0.2224 0.0196 248.73);
 	--color-primary: oklch(0.5608 0.2284 26.8);
