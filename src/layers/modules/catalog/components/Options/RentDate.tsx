@@ -4,6 +4,7 @@ import { DatePicker } from '@src/layers/ui/DatePicker';
 import { Typography } from '@src/layers/ui/Typography';
 import { declensionDays, getDaysCount, getFormattedDateRange } from '@src/shared/helpers';
 import { useUnit } from 'effector-react';
+
 import { $date, setDate } from '../../store/paramsStore';
 
 export const RentDate = () => {
@@ -36,7 +37,7 @@ export const RentDate = () => {
 						className="border-gray-70 rounded-md border-1 bg-white p-4"
 						sideOffset={10}
 					>
-						<DatePicker selected={date} onSelect={setDate} mode="range" />
+						<DatePicker selected={date} mode="range" onSelect={setDate} />
 					</Popover.Content>
 				</Popover.Portal>
 			</Popover.Root>

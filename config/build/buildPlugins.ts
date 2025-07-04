@@ -1,7 +1,7 @@
 import type { Configuration } from 'webpack';
 
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import Dotenv from 'dotenv-webpack'
+import Dotenv from 'dotenv-webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { ProgressPlugin } from 'webpack';
