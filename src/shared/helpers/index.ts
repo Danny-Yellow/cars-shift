@@ -1,3 +1,3 @@
 export * from './date';
-export * from './formatNumber';
 export * from './declension';
+export * from './formatNumber';

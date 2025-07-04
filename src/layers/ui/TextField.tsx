@@ -5,7 +5,7 @@ import { cva } from 'class-variance-authority';
 import clsx from 'clsx';
 
 const textFieldStyles = cva(
-	'outline-gray-70 placeholder:text-gray-50 rounded-md bg-white px-3 py-3 text-black outline-1',
+	'outline-gray-70 rounded-md bg-white px-3 py-3 text-black outline-1 placeholder:text-gray-50',
 	{
 		variants: {
 			size: {

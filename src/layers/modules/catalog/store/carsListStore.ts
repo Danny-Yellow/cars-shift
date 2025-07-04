@@ -20,10 +20,10 @@ export const $carsList = createStore<Car[]>([]).on(fetchCarsFx.doneData, (state,
 );
 
 sample({
-  source: $paginationOptions,
-  clock: setNextPage,
-  fn: (state) => ({ limit: state.limit, page: state.page }),
-  target: fetchCarsFx,
+	source: $paginationOptions,
+	clock: setNextPage,
+	fn: (state) => ({ limit: state.limit, page: state.page }),
+	target: fetchCarsFx,
 });
 
 $hasMore.on(fetchCarsFx.doneData, (_, { meta }) => meta.page < meta.totalPages);
