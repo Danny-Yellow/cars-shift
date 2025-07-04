@@ -5,7 +5,7 @@ import { useUnit } from 'effector-react';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import { $carsList, $hasMore, fetchCarsFx, setNextPage } from '../store/carsListStore';
+import { $carsList, $hasMore, fetchCarsFx, setNextPage } from '../../store/carsListStore';
 import { CarCardSkeleton } from './CarCardSkeleton';
 
 const TRANSMISSIONS_RU = {

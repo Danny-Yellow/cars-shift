@@ -7,7 +7,7 @@ html {
 	font-optical-sizing: auto;
 	font-weight: 400;
 	font-style: normal;
-    @apply text-black;
+	@apply text-black;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -25,4 +25,8 @@ html {
 
 .dark {
 	@apply bg-black text-white;
+}
+
+.rdp-root {
+	--rdp-accent-color: var(--color-primary);
 }
