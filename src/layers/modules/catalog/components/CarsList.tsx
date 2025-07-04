@@ -2,11 +2,11 @@ import { Button, Typography } from '@src/layers/ui';
 import { ENV } from '@src/shared/constants';
 import { formatNumberWithSpaces } from '@src/shared/utils';
 import { useUnit } from 'effector-react';
+import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { $carsList, $hasMore, fetchCarsFx, setNextPage } from '../store/carsListStore';
 import { CarCardSkeleton } from './CarCardSkeleton';
-import { useEffect } from 'react';
 
 const TRANSMISSIONS_RU = {
 	automatic: 'Автомат',
