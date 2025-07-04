@@ -1,4 +1,6 @@
 export * from './Calendar'
+export * from './ChevronLeft'
+export * from './ChevronRight'
 export * from './Crescent'
 export * from './Exit'
 export * from './Logo'
