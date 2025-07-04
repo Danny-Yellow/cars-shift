@@ -24,8 +24,10 @@ const styles = cva('flex items-center gap-4', {
 
 type LinkVariants = VariantProps<typeof styles>;
 
-interface LinkProps extends Omit<ComponentProps<typeof RouterLink>, keyof LinkVariants>, LinkVariants {
-    startIcon?: ReactNode;
+interface LinkProps
+	extends Omit<ComponentProps<typeof RouterLink>, keyof LinkVariants>,
+		LinkVariants {
+	startIcon?: ReactNode;
 }
 
 export const Link = ({ className, color, children, startIcon, isActive, ...props }: LinkProps) => {

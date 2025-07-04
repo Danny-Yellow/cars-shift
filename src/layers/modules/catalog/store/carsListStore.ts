@@ -2,8 +2,8 @@ import type { CarsQuery } from '@src/shared/api/entities';
 import type { Car } from '@src/shared/types';
 
 import { getCars } from '@src/shared/api/entities';
-import { createEffect, createStore, sample } from 'effector';
 import { createPagination } from '@src/shared/store';
+import { createEffect, createStore, sample } from 'effector';
 
 export const { setNextPage, $paginationOptions, $hasMore } = createPagination();
 

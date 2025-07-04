@@ -1,5 +1,10 @@
-import { CarsList } from '@src/layers/modules/catalog/components';
+import { CarsList, Options } from '@src/layers/modules/catalog/components';
 
 export const CatalogPage = () => {
-	return <CarsList />;
+	return (
+		<>
+			<Options className='mb-12'/>
+			<CarsList />
+		</>
+	);
 };

@@ -4,32 +4,52 @@ import type { ComponentProps, ReactNode } from 'react';
 import { cva } from 'class-variance-authority';
 import clsx from 'clsx';
 
-const buttonStyles = cva('inline-flex items-center justify-center rounded-2xl py-4 font-semibold text-center cursor-pointer', {
-	variants: {
-		variant: {
-			contained: 'bg-primary hover:bg-primary/90 text-white',
-			outlined: 'outline-gray-70 bg-transparent text-black outline-1',
+const buttonStyles = cva(
+	'inline-flex cursor-pointer items-center justify-center rounded-2xl py-4 text-center font-semibold',
+	{
+		variants: {
+			variant: {
+				contained: 'text-white',
+				outlined: 'outline-gray-70 bg-transparent text-black outline-1',
+			},
+			size: {
+				full: 'w-full',
+				lg: 'px-6',
+				sm: 'px-3',
+			},
+			isLoading: {
+				true: 'pointer-events-none opacity-60',
+				false: null,
+			},
+			color: {
+				primary: null,
+				secondary: null,
+			},
 		},
-		size: {
-			full: 'w-full',
-			lg: 'px-6',
-			sm: 'px-3',
-		},
-		isLoading: {
-			true: 'pointer-events-none opacity-60',
-			false: '',
+		compoundVariants: [
+			{
+				variant: 'contained',
+				color: 'primary',
+				className: 'bg-primary',
+			},
+			{
+				variant: 'contained',
+				color: 'secondary',
+				className: 'bg-gray-30',
+			},
+		],
+		defaultVariants: {
+			variant: 'contained',
+			size: 'full',
+			isLoading: false,
+			color: 'primary',
 		},
 	},
-	defaultVariants: {
-		variant: 'contained',
-		size: 'full',
-		isLoading: false,
-	},
-});
+);
 
 type ButtonVariants = VariantProps<typeof buttonStyles>;
 
-interface ButtonProps extends ComponentProps<'button'>, ButtonVariants {
+interface ButtonProps extends Omit<ComponentProps<'button'>, 'color'>, ButtonVariants {
 	endIcon?: ReactNode;
 	startIcon?: ReactNode;
 }
@@ -40,22 +60,25 @@ export const Button = ({
 	className,
 	type = 'button',
 	variant,
+	color,
 	size,
 	isLoading = false,
 	children,
 	...props
 }: ButtonProps) => (
 	<button
-		className={clsx(className, buttonStyles({ variant, size, isLoading }))}
+		className={clsx(className, buttonStyles({ variant, size, isLoading, color }))}
 		disabled={isLoading || props.disabled}
 		type={type}
 		{...props}
 	>
 		{isLoading && (
-			<span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent align-middle mr-2" />
+			<span className="mr-2 inline-block h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent align-middle" />
 		)}
-		{startIcon && <span>{startIcon}</span>}
-		{children}
-		{endIcon && <span>{endIcon}</span>}
+		<div className='flex items-center gap-2'>
+			{startIcon && <span>{startIcon}</span>}
+			{children}
+			{endIcon && <span>{endIcon}</span>}
+		</div>
 	</button>
 );
