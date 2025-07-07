@@ -10,6 +10,7 @@ const styles = cva('', {
 	variants: {
 		color: {
 			primary: 'text-black dark:text-white',
+			secondary: 'text-gray-50',
 			error: 'text-red-500',
 			invert: 'text-white dark:text-black',
 		},
