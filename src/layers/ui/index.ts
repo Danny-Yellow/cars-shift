@@ -3,5 +3,7 @@ export * from './Container';
 export * from './DatePicker';
 export * from './IconButton';
 export * from './Link';
+export * from './Select';
+export * from './Slider';
 export * from './TextField';
 export * from './Typography';
