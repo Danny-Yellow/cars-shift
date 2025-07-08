@@ -1,5 +1,6 @@
 export * from './Arrows';
 export * from './Calendar';
+export * from './Car';
 export * from './ChevronDown';
 export * from './ChevronLeft';
 export * from './ChevronRight';

@@ -36,7 +36,7 @@ export const Filter = ({ onShow }: FilterProps) => {
 
 	return (
 		<>
-			<div className="grid grid-cols-2 gap-6">
+			<div className="xs:grid-cols-1 grid grid-cols-2 gap-6">
 				<Label>
 					<Typography variant="p_14_regular">Марка</Typography>
 					<Select
@@ -94,7 +94,6 @@ export const Filter = ({ onShow }: FilterProps) => {
 						value={filter.colors ?? []}
 						colors={COLORS}
 						onValueChange={(value) => {
-							console.log(value);
 							setColors(value as any);
 						}}
 					/>

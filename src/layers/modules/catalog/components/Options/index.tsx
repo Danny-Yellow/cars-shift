@@ -29,7 +29,7 @@ export const Options = ({ className, ...props }: ComponentProps<'div'>) => {
 			<PopoverAnchor asChild>
 				<div
 					className={clsx(
-						'bg-gray-90 dark:bg-gray-30 flex items-end gap-4 rounded-2xl px-6 py-4',
+						'bg-gray-90 dark:bg-gray-30 xs:bg-white xs:dark:bg-black xs:px-0 flex items-end gap-4 rounded-2xl px-6 py-4 sm:flex-col sm:gap-6',
 						className,
 					)}
 					{...props}
@@ -45,7 +45,7 @@ export const Options = ({ className, ...props }: ComponentProps<'div'>) => {
 					<RentDate />
 					<PopoverTrigger asChild>
 						<Button
-							className="h-14 max-w-48"
+							className="h-14 max-w-48 sm:max-w-full"
 							variant="contained"
 							color="secondary"
 							startIcon={<Settings />}

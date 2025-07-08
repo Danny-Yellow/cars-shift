@@ -27,6 +27,18 @@ html {
 	@apply bg-black text-white;
 }
 
+@layer components {
+	.grid-cols-auto-fill-300 {
+		grid-template-columns: repeat(auto-fill, 300px);
+	}
+}
+
+/* Media queries */
+@custom-variant md (@media (max-width: 978px) and (min-width: 720px));
+@custom-variant sm (@media (max-width: 720px) );
+@custom-variant xs (@media (max-width: 663px));
+
+/* DatePicker */
 .rdp-root {
 	--rdp-accent-color: var(--color-primary);
 }
@@ -42,7 +54,6 @@ html {
 .dark .rdp-range_end {
 	background: linear-gradient(90deg, var(--color-gray-30) 50%, transparent 50%);
 }
-
 
 .dark .rdp-range_start.rdp-range_end {
 	background: revert;
