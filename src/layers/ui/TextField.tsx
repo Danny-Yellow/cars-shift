@@ -32,9 +32,3 @@ interface TextFieldProps extends Omit<ComponentProps<'input'>, 'size'>, TextFiel
 export const TextField = ({ className, size, hasError = false, ...props }: TextFieldProps) => (
 	<input className={clsx(className, textFieldStyles({ size, hasError }))} type="text" {...props} />
 );
-
-const labelStyles = cva('grid gap-1.5');
-
-export const TextFieldLabel = ({ className, ...props }: ComponentProps<'label'>) => (
-	<label className={clsx(className, labelStyles())} {...props} />
-);

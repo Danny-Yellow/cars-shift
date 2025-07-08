@@ -1,12 +1,24 @@
-type Brand = 'Geely' | 'Haval' | 'Hyundai' | 'Kia' | 'Volkswagen';
-type Color = 'black' | 'blue' | 'grey' | 'orange' | 'red' | 'silver' | 'white';
-type BodyType = 'cabriolet' | 'coupe' | 'hatchback' | 'sedan' | 'suv';
+export type Brand =
+	| 'Garden car'
+	| 'Geely'
+	| 'Grocery cart'
+	| 'Haier'
+	| 'Haval'
+	| 'Hyundai'
+	| 'Invalid'
+	| 'Kia'
+	| 'Mercedes'
+	| 'Volkswagen';
+export type Color = 'black' | 'blue' | 'grey' | 'orange' | 'red' | 'silver' | 'white';
+export type BodyType = 'cabriolet' | 'coupe' | 'hatchback' | 'sedan' | 'suv';
+export type Transmission = 'automatic' | 'manual';
+export type Steering = 'left' | 'right';
 
 export interface BaseCar {
 	bodyType: BodyType;
 	brand: Brand;
 	color: Color;
-	transmission: 'automatic' | 'manual';
+	transmission: Transmission;
 }
 
 export interface Car extends BaseCar {
@@ -14,7 +26,7 @@ export interface Car extends BaseCar {
 	location: string;
 	name: string;
 	price: number;
-	steering: 'left' | 'right';
+	steering: Steering;
 	media: {
 		url: string;
 		isCover: boolean;

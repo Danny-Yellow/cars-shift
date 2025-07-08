@@ -1,11 +1,13 @@
 import { Button, Typography } from '@src/layers/ui';
 import { ENV } from '@src/shared/constants';
+import { useMountEffect } from '@src/shared/hooks';
 import { formatNumberWithSpaces } from '@src/shared/utils';
 import { useUnit } from 'effector-react';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { $carsList, $hasMore, fetchCarsFx, setNextPage } from '../../store/carsListStore';
+import { showCars } from '../../store/paramsStore';
 import { CarCardSkeleton } from './CarCardSkeleton';
 
 const TRANSMISSIONS_RU = {
@@ -17,6 +19,10 @@ export const CarsList = () => {
 	const { ref, inView } = useInView();
 
 	const [carsList, hasMore, isLoading] = useUnit([$carsList, $hasMore, fetchCarsFx.pending]);
+
+	useMountEffect(() => {
+		showCars();
+	}, []);
 
 	useEffect(() => {
 		if (inView && !isLoading && hasMore) {
