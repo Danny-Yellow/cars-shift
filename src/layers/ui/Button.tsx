@@ -14,8 +14,7 @@ const buttonStyles = cva(
 			},
 			size: {
 				full: 'w-full',
-				lg: 'px-6',
-				sm: 'px-3',
+				lg: 'w-80',
 			},
 			isLoading: {
 				true: 'pointer-events-none opacity-60',
