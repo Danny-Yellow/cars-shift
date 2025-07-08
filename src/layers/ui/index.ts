@@ -5,6 +5,7 @@ export * from './DatePicker';
 export * from './IconButton';
 export * from './Label';
 export * from './Link';
+export * from './Popover';
 export * from './Select';
 export * from './Slider';
 export * from './TextField';

@@ -1,5 +1,11 @@
-import * as Popover from '@radix-ui/react-popover';
 import { Calendar as CalendarIcon } from '@src/layers/components/icons';
+import {
+	Popover,
+	PopoverAnchor,
+	PopoverContent,
+	PopoverPortal,
+	PopoverTrigger,
+} from '@src/layers/ui';
 import { DatePicker } from '@src/layers/ui/DatePicker';
 import { Typography } from '@src/layers/ui/Typography';
 import { declensionDays, getDaysCount, getFormattedDateRange } from '@src/shared/helpers';
@@ -24,23 +30,20 @@ export const RentDate = () => {
 			<Typography className="mb-2" variant="p_14_regular">
 				Дата аренды
 			</Typography>
-			<Popover.Root>
-				<Popover.Trigger asChild>
-					<button className="outline-gray-70 flex w-full cursor-pointer items-center justify-between rounded-md bg-white px-3 py-3 text-gray-50 outline-1">
+			<Popover>
+				<PopoverTrigger asChild>
+					<button className="outline-gray-70 dark:text-gray-70 flex w-full cursor-pointer items-center justify-between rounded-md bg-white px-3 py-3 text-gray-50 outline-1 dark:bg-black">
 						<span>{getTextFieldValue()}</span>
 						<CalendarIcon />
 					</button>
-				</Popover.Trigger>
-				<Popover.Anchor />
-				<Popover.Portal>
-					<Popover.Content
-						className="border-gray-70 rounded-md border-1 bg-white p-4"
-						sideOffset={10}
-					>
+				</PopoverTrigger>
+				<PopoverAnchor />
+				<PopoverPortal>
+					<PopoverContent className="rounded-md p-4" sideOffset={10}>
 						<DatePicker selected={date} mode="range" onSelect={setDate} />
-					</Popover.Content>
-				</Popover.Portal>
-			</Popover.Root>
+					</PopoverContent>
+				</PopoverPortal>
+			</Popover>
 		</label>
 	);
 };

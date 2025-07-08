@@ -7,7 +7,7 @@ import { cva } from 'class-variance-authority';
 import clsx from 'clsx';
 
 const triggerStyles = cva(
-	'outline-gray-70 flex w-full cursor-pointer items-center justify-between rounded-lg bg-white outline-1',
+	'outline-gray-70 flex w-full cursor-pointer items-center justify-between rounded-lg bg-white outline-1 dark:bg-black',
 	{
 		variants: {
 			padding: {
@@ -61,7 +61,7 @@ export const SelectContent = ({
 		<RadixSelect.Content
 			className={clsx(
 				className,
-				'animate-in fade-in-0 slide-in-from-top-2 mt-2 w-[var(--radix-select-trigger-width)] bg-white duration-200',
+				'animate-in fade-in-0 slide-in-from-top-2 border-gray-70 mt-2 w-[var(--radix-select-trigger-width)] rounded-lg border-1 bg-white duration-200 dark:bg-black',
 			)}
 			position={position}
 			{...props}
@@ -77,7 +77,10 @@ export const SelectItem = ({
 	...props
 }: ComponentProps<typeof RadixSelect.Item>) => (
 	<RadixSelect.Item
-		className={clsx('hover:bg-gray-90 cursor-pointer rounded p-2 outline-none', className)}
+		className={clsx(
+			'hover:bg-gray-90 dark:hover:bg-gray-30 cursor-pointer rounded p-2 outline-none',
+			className,
+		)}
 		{...props}
 	>
 		<RadixSelect.ItemText>{children}</RadixSelect.ItemText>

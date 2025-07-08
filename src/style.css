@@ -30,3 +30,20 @@ html {
 .rdp-root {
 	--rdp-accent-color: var(--color-primary);
 }
+
+.dark .rdp-range_middle {
+	background: var(--color-gray-30);
+}
+
+.dark .rdp-range_start {
+	background: linear-gradient(90deg, transparent 50%, var(--color-gray-30) 50%);
+}
+
+.dark .rdp-range_end {
+	background: linear-gradient(90deg, var(--color-gray-30) 50%, transparent 50%);
+}
+
+
+.dark .rdp-range_start.rdp-range_end {
+	background: revert;
+}

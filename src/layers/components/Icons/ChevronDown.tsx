@@ -11,7 +11,7 @@ export const ChevronDown = (props: ComponentProps<'svg'>) => (
 	>
 		<path
 			d="M16.6868 7.49998L11.5605 12.6262C11.17 13.0167 10.5369 13.0167 10.1463 12.6262L5.0201 7.49998"
-			stroke="#637083"
+			stroke="currentColor"
 			strokeLinecap="round"
 			strokeLinejoin="round"
 			strokeWidth="1.5"

@@ -10,7 +10,7 @@ const buttonStyles = cva(
 		variants: {
 			variant: {
 				contained: 'text-white',
-				outlined: 'outline-gray-70 bg-transparent text-black outline-1',
+				outlined: 'outline-gray-70 bg-transparent text-black outline-1 dark:text-white',
 			},
 			size: {
 				full: 'w-full',
@@ -34,7 +34,7 @@ const buttonStyles = cva(
 			{
 				variant: 'contained',
 				color: 'secondary',
-				className: 'bg-gray-30',
+				className: 'bg-gray-30 dark:bg-gray-80 dark:text-black',
 			},
 		],
 		defaultVariants: {

@@ -15,7 +15,12 @@ export const DatePicker = (props: ComponentProps<typeof DayPicker>) => {
 		<DayPicker
 			animate
 			classNames={{
-				chevron: 'fill-gray-30',
+				chevron: 'dark:fill-gray-80',
+				caption: 'dark:bg-black',
+				months: 'dark:bg-black',
+				head_row: 'dark:bg-black',
+				row: 'dark:bg-black',
+				cell: 'dark:text-white',
 			}}
 			disabled={{ before: today }}
 			fromMonth={fromMonth}

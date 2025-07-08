@@ -1,8 +1,17 @@
 import type { ComponentProps } from 'react';
 
-import * as Popover from '@radix-ui/react-popover';
 import { Settings } from '@src/layers/components/icons';
-import { Button, Label, TextField, Typography } from '@src/layers/ui';
+import {
+	Button,
+	Label,
+	Popover,
+	PopoverAnchor,
+	PopoverContent,
+	PopoverPortal,
+	PopoverTrigger,
+	TextField,
+	Typography,
+} from '@src/layers/ui';
 import clsx from 'clsx';
 import { useUnit } from 'effector-react';
 import { useState } from 'react';
@@ -16,10 +25,13 @@ export const Options = ({ className, ...props }: ComponentProps<'div'>) => {
 	const [open, setOpen] = useState(false);
 
 	return (
-		<Popover.Root onOpenChange={setOpen} open={open}>
-			<Popover.Anchor asChild>
+		<Popover onOpenChange={setOpen} open={open}>
+			<PopoverAnchor asChild>
 				<div
-					className={clsx('bg-gray-90 flex items-end gap-4 rounded-2xl px-6 py-4', className)}
+					className={clsx(
+						'bg-gray-90 dark:bg-gray-30 flex items-end gap-4 rounded-2xl px-6 py-4',
+						className,
+					)}
 					{...props}
 				>
 					<Label className="w-full">
@@ -31,7 +43,7 @@ export const Options = ({ className, ...props }: ComponentProps<'div'>) => {
 						/>
 					</Label>
 					<RentDate />
-					<Popover.Trigger asChild>
+					<PopoverTrigger asChild>
 						<Button
 							className="h-14 max-w-48"
 							variant="contained"
@@ -40,19 +52,19 @@ export const Options = ({ className, ...props }: ComponentProps<'div'>) => {
 						>
 							Фильтры
 						</Button>
-					</Popover.Trigger>
+					</PopoverTrigger>
 				</div>
-			</Popover.Anchor>
-			<Popover.Portal>
-				<Popover.Content
+			</PopoverAnchor>
+			<PopoverPortal>
+				<PopoverContent
 					style={{
 						width: 'var(--radix-popover-trigger-width)',
 					}}
-					className="border-gray-70 mt-2 rounded-2xl border-1 bg-white p-6"
+					className="border-gray-70 mt-2 rounded-2xl border-1 bg-white p-6 dark:bg-black"
 				>
 					<Filter onShow={() => setOpen(false)} />
-				</Popover.Content>
-			</Popover.Portal>
-		</Popover.Root>
+				</PopoverContent>
+			</PopoverPortal>
+		</Popover>
 	);
 };
