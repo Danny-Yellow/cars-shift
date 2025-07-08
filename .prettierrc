@@ -11,5 +11,5 @@
 	"arrowParens": "always",
 	"endOfLine": "auto",
 	"plugins": ["prettier-plugin-tailwindcss"],
-	"tailwindFunctions": ["clsx", "cva"]
+	"tailwindFunctions": ["clsx"]
 }

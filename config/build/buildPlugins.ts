@@ -1,10 +1,10 @@
 import type { Configuration } from 'webpack';
 
-import CopyWebpackPlugin from 'copy-webpack-plugin';
-import Dotenv from 'dotenv-webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { ProgressPlugin } from 'webpack';
+
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 import type { BuildOptions } from './@types/options';
 
@@ -16,7 +16,6 @@ export const buildPlugins = ({ paths, mode }: BuildOptions): Configuration['plug
 		new HtmlWebpackPlugin({
 			template: paths.html,
 		}),
-		new Dotenv(),
 		new MiniCssExtractPlugin(),
 		new CopyWebpackPlugin({
 			patterns: [{ from: 'public', to: '' }],

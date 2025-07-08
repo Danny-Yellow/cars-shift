@@ -1,4 +1,5 @@
 export const buildLoaders = () => {
+
 	const imageLoader = {
 		test: /\.(png|svg|jpg|jpeg|gif)$/i,
 		type: 'asset/resource',
