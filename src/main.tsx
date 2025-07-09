@@ -1,4 +1,4 @@
-import { fetchSessionFx } from '@src/layers/modules/session/store/authStore';
+import { fetchSessionFx } from '@src/layers/modules/session/store';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router';

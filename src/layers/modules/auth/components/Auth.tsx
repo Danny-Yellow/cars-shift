@@ -1,6 +1,6 @@
 import type { Signin } from '@src/shared/types';
 
-import { AdaptivePageHeader, OTPCode, PhoneInput } from '@src/layers/components';
+import { AdaptivePageTitle, OTPCode, PhoneInput } from '@src/layers/components';
 import { Cross } from '@src/layers/components/icons';
 import { Button, Form, IconButton, Typography } from '@src/layers/ui';
 import { stripNonDigits } from '@src/shared/helpers';
@@ -45,7 +45,7 @@ export const Auth = ({
 				handleSubmit();
 			}}
 		>
-			<AdaptivePageHeader
+			<AdaptivePageTitle
 				mobileButton={
 					<IconButton onClick={() => navigate('/')}>
 						<Cross />
@@ -53,7 +53,7 @@ export const Auth = ({
 				}
 			>
 				<Typography variant="h2">Авторизация</Typography>
-			</AdaptivePageHeader>
+			</AdaptivePageTitle>
 			<Typography variant="p_16_regular">
 				Введите номер телефона для входа в личный кабинет
 			</Typography>

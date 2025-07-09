@@ -1,7 +1,7 @@
 import type { RouteObject } from 'react-router';
 
 import { RootLayout } from '@src/layers/components/RootLayout';
-import { AuthTopNavigation } from '@src/layers/modules/session';
+import { AuthTopNavigation } from '@src/layers/modules/session/components';
 import { AuthPage } from '@src/layers/pages/AuthPage';
 import { CatalogPage } from '@src/layers/pages/CatalogPage';
 import { ROUTES } from '@src/shared/constants';

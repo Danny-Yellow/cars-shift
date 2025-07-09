@@ -93,8 +93,8 @@ export const Filter = ({ onShow }: FilterProps) => {
 						type="multiple"
 						value={filter.colors ?? []}
 						colors={COLORS}
-						onValueChange={(value) => {
-							setColors(value as any);
+						onValueChange={(value: TFilter['colors']) => {
+							setColors(value);
 						}}
 					/>
 				</Label>

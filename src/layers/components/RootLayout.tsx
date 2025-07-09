@@ -9,7 +9,7 @@ interface RootLayoutProps {
 
 export const RootLayout = ({ header }: RootLayoutProps) => (
 	<>
-		<header>{header}</header>
+		<header className="xs:hidden">{header}</header>
 		<main className="xs:mt-0 mt-12">
 			<Container>
 				<Outlet />

@@ -1,5 +1,5 @@
-import { Auth } from '@src/layers/modules/auth';
-import { signinFx } from '@src/layers/modules/session/store/authStore';
+import { Auth } from '@src/layers/modules/auth/components';
+import { signinFx } from '@src/layers/modules/session/store';
 import { ROUTES } from '@src/shared/constants';
 import { useUnit } from 'effector-react';
 import { useNavigate } from 'react-router';

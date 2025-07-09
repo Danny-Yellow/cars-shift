@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 import { useDevice } from '@src/shared/hooks';
 
-export const AdaptivePageHeader = ({
+export const AdaptivePageTitle = ({
 	children,
 	mobileButton,
 }: {
@@ -11,10 +11,12 @@ export const AdaptivePageHeader = ({
 }) => {
 	const { isMobile } = useDevice();
 
-	return (
+	return isMobile ? (
 		<header className="flex items-center gap-8 sm:py-3">
 			{isMobile && mobileButton}
 			{children}
 		</header>
+	) : (
+		children
 	);
 };
