@@ -2,6 +2,7 @@ import type { RouteObject } from 'react-router';
 
 import { TopNavigation } from '@src/layers/components/Navigation';
 import { RootLayout } from '@src/layers/components/RootLayout';
+import { AuthPage } from '@src/layers/pages/AuthPage';
 import { CatalogPage } from '@src/layers/pages/CatalogPage';
 import { ROUTES } from '@src/shared/constants';
 import { createBrowserRouter, Navigate } from 'react-router';
@@ -13,6 +14,10 @@ const routes = [
 			{
 				path: ROUTES.CATALOG,
 				Component: CatalogPage,
+			},
+			{
+				path: ROUTES.LOGIN,
+				Component: AuthPage,
 			},
 		],
 	},

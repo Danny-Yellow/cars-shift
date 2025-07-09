@@ -5,11 +5,11 @@ type DeviceType = 'lg' | 'md' | 'sm' | 'xs';
 const queries = {
 	xs: '(max-width: 663px)',
 	sm: '(max-width: 720px)',
-	md: '(max-width: 978px) and (min-width: 710px)',
+	md: '(max-width: 978px) and (min-width: 720px)',
 	lg: '(min-width: 979px)',
 };
 
-export function useDevice(): DeviceType {
+export function useDevice() {
 	const getDevice = (): DeviceType => {
 		if (window.matchMedia(queries.xs).matches) return 'xs';
 		if (window.matchMedia(queries.sm).matches) return 'sm';
@@ -17,15 +17,17 @@ export function useDevice(): DeviceType {
 		return 'lg';
 	};
 
-	const [device, setDevice] = useState<DeviceType>(() =>
+	const [size, setSize] = useState<DeviceType>(() =>
 		typeof window !== 'undefined' ? getDevice() : 'lg',
 	);
 
 	useEffect(() => {
-		const onResize = () => setDevice(getDevice());
+		const onResize = () => setSize(getDevice());
 		window.addEventListener('resize', onResize);
 		return () => window.removeEventListener('resize', onResize);
 	}, []);
 
-	return device;
+	const isMobile = size === 'xs';
+
+	return { size, isMobile };
 }

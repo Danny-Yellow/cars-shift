@@ -7,15 +7,15 @@ interface DeviceViewProps {
 }
 
 export const MobileView = ({ children }: DeviceViewProps) => {
-	const device = useDevice();
-	if (device !== 'xs') return null;
+	const { size } = useDevice();
+	if (size !== 'xs') return null;
 	return <>{children}</>;
 };
 
 const browserDevices = ['md', 'lg', 'sm'];
 
 export const BrowserView = ({ children }: DeviceViewProps) => {
-	const device = useDevice();
-	if (!browserDevices.includes(device)) return null;
+	const { size } = useDevice();
+	if (!browserDevices.includes(size)) return null;
 	return <>{children}</>;
 };

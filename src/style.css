@@ -21,6 +21,19 @@ html {
 	--color-gray-60: oklch(0.7055 0.0234 256.76);
 	--color-gray-50: oklch(0.5413 0.0337 257.79);
 	--color-gray-30: oklch(0.368 0.0334 257.1);
+
+	--animate-blink: blink 1s infinite;
+
+	@keyframes blink {
+		0%,
+		100% {
+			opacity: 1;
+		}
+
+		50% {
+			opacity: 0;
+		}
+	}
 }
 
 .dark {

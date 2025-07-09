@@ -63,11 +63,16 @@ export const Button = ({
 	size,
 	isLoading = false,
 	children,
+	disabled,
 	...props
 }: ButtonProps) => (
 	<button
-		className={clsx(className, buttonStyles({ variant, size, isLoading, color }))}
-		disabled={isLoading || props.disabled}
+		className={clsx(
+			className,
+			buttonStyles({ variant, size, isLoading, color }),
+			disabled && 'opacity-50',
+		)}
+		disabled={isLoading || disabled}
 		type={type}
 		{...props}
 	>
