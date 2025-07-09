@@ -35,7 +35,7 @@ export const TopNavigation = ({ isAuth, logout }: TopNavigationProps) => {
 							Выйти
 						</Link>
 					) : (
-						<Link isActive={pathname === ROUTES.LOGIN} to={ROUTES.LOGIN}>
+						<Link isActive={pathname === ROUTES.SIGNIN} to={ROUTES.SIGNIN}>
 							Войти
 						</Link>
 					)}

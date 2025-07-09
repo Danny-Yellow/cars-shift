@@ -3,5 +3,5 @@ export const ROUTES = {
 	CAR_DETAILS: 'cars/:id',
 	PROFILE: 'profile',
 	ORDERS: 'orders',
-	LOGIN: 'login',
+	SIGNIN: 'signin',
 };

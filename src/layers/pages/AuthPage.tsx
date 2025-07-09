@@ -1,15 +1,23 @@
 import { Auth } from '@src/layers/modules/auth';
+import { signinFx } from '@src/layers/modules/session/store/authStore';
+import { ROUTES } from '@src/shared/constants';
+import { useUnit } from 'effector-react';
+import { useNavigate } from 'react-router';
 
 export const AuthPage = () => {
+	const [signinIsLoading] = useUnit([signinFx.pending]);
+	const navigate = useNavigate();
+
 	return (
-		<>
-			<Auth
-				signin={() => {
-					// signin
-					// navigate to orders page
-				}}
-				signinIsLoading={false}
-			/>
-		</>
+		<Auth
+			signin={(data) =>
+				signinFx(data).then((res) => {
+					if (res.success) {
+						navigate(`/${ROUTES.ORDERS}`);
+					}
+				})
+			}
+			signinIsLoading={signinIsLoading}
+		/>
 	);
 };

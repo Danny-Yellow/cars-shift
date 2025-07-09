@@ -33,6 +33,7 @@ export const Auth = ({
 				signin({ code: +value.code, phone });
 				return;
 			}
+
 			createOtpFx(phone);
 		},
 	});
