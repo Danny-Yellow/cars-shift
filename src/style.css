@@ -7,7 +7,7 @@ html {
 	font-optical-sizing: auto;
 	font-weight: 400;
 	font-style: normal;
-    @apply text-black;
+	@apply text-black;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -25,4 +25,36 @@ html {
 
 .dark {
 	@apply bg-black text-white;
+}
+
+@layer components {
+	.grid-cols-auto-fill-300 {
+		grid-template-columns: repeat(auto-fill, 300px);
+	}
+}
+
+/* Media queries */
+@custom-variant md (@media (max-width: 978px) and (min-width: 720px));
+@custom-variant sm (@media (max-width: 720px) );
+@custom-variant xs (@media (max-width: 663px));
+
+/* DatePicker */
+.rdp-root {
+	--rdp-accent-color: var(--color-primary);
+}
+
+.dark .rdp-range_middle {
+	background: var(--color-gray-30);
+}
+
+.dark .rdp-range_start {
+	background: linear-gradient(90deg, transparent 50%, var(--color-gray-30) 50%);
+}
+
+.dark .rdp-range_end {
+	background: linear-gradient(90deg, var(--color-gray-30) 50%, transparent 50%);
+}
+
+.dark .rdp-range_start.rdp-range_end {
+	background: revert;
 }

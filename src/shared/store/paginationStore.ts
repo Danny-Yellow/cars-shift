@@ -1,20 +1,19 @@
 import { createEvent, createStore } from 'effector';
 
-
 export const createPagination = (limit: number = 6) => {
-  const setNextPage = createEvent();
-  const resetPagination = createEvent();
+	const setNextPage = createEvent();
+	const resetPagination = createEvent();
 
-  const $paginationOptions = createStore({ page: 0, limit })
-    .on(setNextPage, (state) => ({ ...state, page: state.page + 1 }))
-    .on(resetPagination, () => ({ page: 0, limit}));
+	const $paginationOptions = createStore({ page: 1, limit })
+		.on(setNextPage, (state) => ({ ...state, page: state.page + 1 }))
+		.on(resetPagination, () => ({ page: 1, limit }));
 
-  const $hasMore = createStore(true);
+	const $hasMore = createStore(true);
 
-  return {
-    setNextPage,
-    resetPagination,
-    $paginationOptions,
-    $hasMore,
-  };
-}
+	return {
+		setNextPage,
+		resetPagination,
+		$paginationOptions,
+		$hasMore,
+	};
+};

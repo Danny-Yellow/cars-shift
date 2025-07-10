@@ -10,6 +10,7 @@ const styles = cva('', {
 	variants: {
 		color: {
 			primary: 'text-black dark:text-white',
+			secondary: 'text-gray-50',
 			error: 'text-red-500',
 			invert: 'text-white dark:text-black',
 		},
@@ -54,13 +55,10 @@ export const Typography = <Tag extends TypographyTag = 'p'>({
 	...props
 }: TypographyProps<Tag>) => {
 	const Component = tag;
-	const variants = {color, variant, underline};
+	const variants = { color, variant, underline };
 
 	return (
-		<Component
-			className={clsx(className, styles(variants))}
-			{...props}
-		>
+		<Component className={clsx(className, styles(variants))} {...props}>
 			{children}
 		</Component>
 	);

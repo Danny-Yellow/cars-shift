@@ -2,10 +2,16 @@ import type { CarsQuery } from '@src/shared/api/entities';
 import type { Car } from '@src/shared/types';
 
 import { getCars } from '@src/shared/api/entities';
-import { createEffect, createStore, sample } from 'effector';
 import { createPagination } from '@src/shared/store';
+import { debounce } from '@src/shared/utils';
+import { createEffect, createEvent, createStore, sample } from 'effector';
 
-export const { setNextPage, $paginationOptions, $hasMore } = createPagination();
+import { $filter, $price, $search, changeSearch, showCars } from './paramsStore';
+
+export const { setNextPage, resetPagination, $paginationOptions, $hasMore } = createPagination();
+
+export const debouncedChangeSearch = createEvent<string>();
+export const resetCarsList = createEvent();
 
 export const fetchCarsFx = createEffect(async (query?: CarsQuery) => {
 	const result = await getCars({
@@ -15,15 +21,30 @@ export const fetchCarsFx = createEffect(async (query?: CarsQuery) => {
 	return result.data;
 });
 
-export const $carsList = createStore<Car[]>([]).on(fetchCarsFx.doneData, (state, { data }) =>
-	state.concat(data),
-);
+export const $carsList = createStore<Car[]>([])
+	.on(fetchCarsFx.doneData, (state, { data }) => state.concat(data))
+	.reset(resetCarsList);
+
+changeSearch.watch((value) => {
+	debounce(() => debouncedChangeSearch(value), 5000);
+});
 
 sample({
-  source: $paginationOptions,
-  clock: setNextPage,
-  fn: (state) => ({ limit: state.limit, page: state.page }),
-  target: fetchCarsFx,
+	clock: [debouncedChangeSearch, showCars],
+	target: [resetPagination, resetCarsList],
+});
+
+sample({
+	source: { $filter, $search, $price, $paginationOptions },
+	clock: [resetPagination, setNextPage],
+	fn: (state) => ({
+		search: state.$search,
+		maxPrice: state.$price,
+		...state.$filter,
+		transmission: state.$filter.transmission === 'any' ? undefined : state.$filter.transmission,
+		...state.$paginationOptions,
+	}),
+	target: fetchCarsFx,
 });
 
 $hasMore.on(fetchCarsFx.doneData, (_, { meta }) => meta.page < meta.totalPages);

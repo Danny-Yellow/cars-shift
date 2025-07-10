@@ -12,8 +12,8 @@ interface DefaultResponse<Data, Meta = undefined> {
 }
 
 interface Meta {
-	totalPages: number;
 	limit: number;
 	page: number;
 	total: number;
+	totalPages: number;
 }
