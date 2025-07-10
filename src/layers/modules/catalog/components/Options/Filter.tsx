@@ -93,13 +93,13 @@ export const Filter = ({ onShow }: FilterProps) => {
 						type="multiple"
 						value={filter.colors ?? []}
 						colors={COLORS}
-						onValueChange={(value) => {
-							setColors(value as any);
+						onValueChange={(value: TFilter['colors']) => {
+							setColors(value);
 						}}
 					/>
 				</Label>
 			</div>
-			<div className="mt-10 flex justify-between gap-4 pb-4">
+			<div className="xs:flex-col mt-10 flex justify-between gap-4 pb-4">
 				<Button size="lg" variant="outlined" onClick={() => resetFilter()}>
 					Сбросить все фильтры
 				</Button>

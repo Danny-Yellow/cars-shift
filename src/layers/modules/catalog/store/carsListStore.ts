@@ -1,7 +1,7 @@
-import type { CarsQuery } from '@src/shared/api/entities';
+import type { CarsQuery } from '@src/shared/api';
 import type { Car } from '@src/shared/types';
 
-import { getCars } from '@src/shared/api/entities';
+import { getCars } from '@src/shared/api';
 import { createPagination } from '@src/shared/store';
 import { debounce } from '@src/shared/utils';
 import { createEffect, createEvent, createStore, sample } from 'effector';

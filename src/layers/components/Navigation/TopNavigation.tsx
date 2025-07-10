@@ -16,7 +16,7 @@ export const TopNavigation = ({ isAuth, logout }: TopNavigationProps) => {
 	const { isLight, toggleTheme } = useTheme();
 
 	return (
-		<nav className="border-gray-70 xs:hidden grid h-[82px] items-center border-b-[1px]">
+		<nav className="border-gray-70 grid h-[82px] items-center border-b-[1px]">
 			<Container className="flex w-full justify-between">
 				<div className="flex gap-8">
 					<RouterLink to={ROUTES.CATALOG}>
@@ -35,7 +35,7 @@ export const TopNavigation = ({ isAuth, logout }: TopNavigationProps) => {
 							Выйти
 						</Link>
 					) : (
-						<Link isActive={pathname === ROUTES.LOGIN} to={ROUTES.LOGIN}>
+						<Link isActive={pathname === ROUTES.SIGNIN} to={ROUTES.SIGNIN}>
 							Войти
 						</Link>
 					)}

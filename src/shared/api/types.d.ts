@@ -4,8 +4,8 @@ interface AxiosRequestConfig<Params = undefined, Data = undefined> {
 	params?: Params;
 }
 
-interface DefaultResponse<Data, Meta = undefined> {
-	data: Data;
+interface DefaultResponse<Data = undefined, Meta = undefined> {
+	data?: Data;
 	meta?: Meta;
 	reason: string;
 	success: boolean;

@@ -63,21 +63,26 @@ export const Button = ({
 	size,
 	isLoading = false,
 	children,
+	disabled,
 	...props
 }: ButtonProps) => (
 	<button
-		className={clsx(className, buttonStyles({ variant, size, isLoading, color }))}
-		disabled={isLoading || props.disabled}
+		className={clsx(
+			className,
+			buttonStyles({ variant, size, isLoading, color }),
+			disabled && 'opacity-50',
+		)}
+		disabled={isLoading || disabled}
 		type={type}
 		{...props}
 	>
 		{isLoading && (
 			<span className="mr-2 inline-block h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent align-middle" />
 		)}
-		<div className="flex items-center gap-2">
+		<span className="flex items-center gap-2">
 			{startIcon && <span>{startIcon}</span>}
 			{children}
 			{endIcon && <span>{endIcon}</span>}
-		</div>
+		</span>
 	</button>
 );

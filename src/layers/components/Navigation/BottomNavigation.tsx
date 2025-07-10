@@ -39,7 +39,7 @@ export const BottomNavigation = () => {
 					</Link>
 				</div>
 			</nav>
-			<div className="h-[71px]"></div>
+			<div className="h-[77px]" />
 		</>
 	);
 };
