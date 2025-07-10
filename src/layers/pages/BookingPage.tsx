@@ -80,6 +80,10 @@ export const BookingPage = () => {
 							startDate: date.range.from.getTime(),
 							birthDate: convertToISO(person.birthDate),
 							phone: stripNonDigits(person.phone),
+						}).then((res) => {
+							if (res.success) {
+								navigate(ROUTES.ORDER_REQUEST);
+							}
 						})
 					}
 				/>

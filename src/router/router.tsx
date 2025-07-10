@@ -2,7 +2,7 @@ import type { RouteObject } from 'react-router';
 
 import { RootLayout } from '@src/layers/components/RootLayout';
 import { AuthTopNavigation } from '@src/layers/modules/session/components';
-import { AuthPage, BookingPage, CarPage, CatalogPage } from '@src/layers/pages';
+import { AuthPage, BookingPage, CarPage, CatalogPage, OrderRequestPage } from '@src/layers/pages';
 import { ROUTES } from '@src/shared/constants';
 import { createBrowserRouter, Navigate } from 'react-router';
 
@@ -26,6 +26,10 @@ const routes = [
 					{
 						path: ROUTES.BOOKING,
 						Component: BookingPage,
+					},
+					{
+						path: ROUTES.ORDER_REQUEST,
+						Component: OrderRequestPage,
 					},
 				],
 			},
