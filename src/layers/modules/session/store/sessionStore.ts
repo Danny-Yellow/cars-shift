@@ -1,6 +1,7 @@
+import type { UpdateProfile} from '@src/shared/api';
 import type { Signin } from '@src/shared/types/entities';
 
-import { getSession, signin } from '@src/shared/api';
+import { getSession, signin, updateProfile } from '@src/shared/api';
 import { LOCAL_STORAGE_KEYS } from '@src/shared/constants';
 import { createEffect, createEvent, createStore } from 'effector';
 
@@ -11,6 +12,11 @@ export const fetchSessionFx = createEffect(async () => {
 
 export const signinFx = createEffect(async (data: Signin) => {
 	const result = await signin({ data });
+	return result.data;
+});
+
+export const updateProfileFx = createEffect(async (data: UpdateProfile) => {
+	const result = await updateProfile({ data });
 	return result.data;
 });
 
