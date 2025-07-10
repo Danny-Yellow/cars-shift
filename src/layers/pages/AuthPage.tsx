@@ -13,7 +13,7 @@ export const AuthPage = () => {
 			signin={(data) =>
 				signinFx(data).then((res) => {
 					if (res.success) {
-						navigate(ROUTES.ORDERS);
+						navigate(ROUTES.ORDERS_HISTORY);
 					}
 				})
 			}

@@ -21,10 +21,10 @@ export const BottomNavigation = () => {
 					</Link>
 					<Link
 						className="flex w-full flex-col items-center gap-[2px] py-[10px]"
-						isActive={pathname === ROUTES.ORDERS}
+						isActive={pathname === ROUTES.ORDERS_HISTORY}
 						color="secondary"
 						startIcon={<Time />}
-						to={ROUTES.ORDERS}
+						to={ROUTES.ORDERS_HISTORY}
 					>
 						Заказы
 					</Link>

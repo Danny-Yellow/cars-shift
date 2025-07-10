@@ -6,6 +6,7 @@ import type { BookingUser } from './user';
 export type RentStatus = 0 | 1;
 
 export interface Rent extends Location, BookingUser, Date {
+	_id: string;
 	carInfo: Car;
 	status: RentStatus;
 	totalPrice: number;

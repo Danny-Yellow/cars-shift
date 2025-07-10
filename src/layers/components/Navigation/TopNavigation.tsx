@@ -25,7 +25,11 @@ export const TopNavigation = ({ isAuth, logout }: TopNavigationProps) => {
 					<Link isActive={pathname === ROUTES.PROFILE} startIcon={<User />} to={ROUTES.PROFILE}>
 						Профиль
 					</Link>
-					<Link isActive={pathname === ROUTES.ORDERS} startIcon={<Time />} to={ROUTES.ORDERS}>
+					<Link
+						isActive={pathname === ROUTES.ORDERS_HISTORY}
+						startIcon={<Time />}
+						to={ROUTES.ORDERS_HISTORY}
+					>
 						История
 					</Link>
 				</div>
