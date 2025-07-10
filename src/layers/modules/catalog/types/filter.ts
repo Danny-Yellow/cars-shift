@@ -1,5 +1,4 @@
-import type { BodyType, Brand, Color, Transmission } from '@src/shared/types';
-
+import type { BodyType, Brand, Color, Transmission } from '@src/shared/types/entities';
 
 export interface Filter {
 	bodyType?: BodyType;

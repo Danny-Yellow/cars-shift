@@ -1,3 +1,5 @@
+import type { Color } from '@src/shared/types/entities';
+
 import { Palette } from '@src/layers/components';
 import {
 	Button,
@@ -15,7 +17,7 @@ import { useUnit } from 'effector-react';
 
 import type { Filter as TFilter } from '../../types/filter';
 
-import { BODY_TYPES, BRANDS, COLORS } from '../../constants/filter';
+import { BODY_TYPES, BRANDS, COLORS } from '../../constants/car';
 import {
 	$filter,
 	resetFilter,
@@ -92,7 +94,7 @@ export const Filter = ({ onShow }: FilterProps) => {
 					<Palette
 						type="multiple"
 						value={filter.colors ?? []}
-						colors={COLORS}
+						colors={Object.keys(COLORS) as Color[]}
 						onValueChange={(value: TFilter['colors']) => {
 							setColors(value);
 						}}

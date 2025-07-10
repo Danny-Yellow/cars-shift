@@ -1,4 +1,4 @@
-import type { Signin } from '@src/shared/types';
+import type { Signin } from '@src/shared/types/entities';
 
 import { getSession, signin } from '@src/shared/api';
 import { LOCAL_STORAGE_KEYS } from '@src/shared/constants';

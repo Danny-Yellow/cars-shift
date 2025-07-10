@@ -1,4 +1,4 @@
-import type { Signin } from '@src/shared/types';
+import type { Signin } from '@src/shared/types/entities';
 
 import { AdaptivePageTitle, OTPCode, PhoneInput } from '@src/layers/components';
 import { Cross } from '@src/layers/components/icons';

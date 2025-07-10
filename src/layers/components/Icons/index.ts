@@ -8,6 +8,7 @@ export * from './Crescent';
 export * from './Cross';
 export * from './Exit';
 export * from './Logo';
+export * from './Pencil';
 export * from './Settings';
 export * from './Sun';
 export * from './Time';

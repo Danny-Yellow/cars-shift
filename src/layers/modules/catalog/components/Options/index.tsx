@@ -1,5 +1,6 @@
 import type { ComponentProps } from 'react';
 
+import { RentDate } from '@src/layers/components';
 import { Settings } from '@src/layers/components/icons';
 import {
 	Button,
@@ -16,12 +17,13 @@ import clsx from 'clsx';
 import { useUnit } from 'effector-react';
 import { useState } from 'react';
 
-import { $search, changeSearch } from '../../store/paramsStore';
+import { $date, $search, changeSearch, setDate } from '../../store/paramsStore';
 import { Filter } from './Filter';
-import { RentDate } from './RentDate';
 
 export const Options = ({ className, ...props }: ComponentProps<'div'>) => {
 	const search = useUnit($search);
+	const date = useUnit($date);
+
 	const [open, setOpen] = useState(false);
 
 	return (
@@ -42,7 +44,7 @@ export const Options = ({ className, ...props }: ComponentProps<'div'>) => {
 							placeholder="Поиск"
 						/>
 					</Label>
-					<RentDate />
+					<RentDate date={date} setDate={setDate} />
 					<PopoverTrigger asChild>
 						<Button
 							className="h-14 max-w-48 sm:max-w-full"
