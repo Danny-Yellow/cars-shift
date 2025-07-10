@@ -3,6 +3,8 @@ import { ChevronLeft, Cross } from '@src/layers/components/icons';
 import { BookCar, CheckData, Person } from '@src/layers/modules/booking/components';
 import {
 	$currentStep,
+	$location,
+	$person,
 	decrementStep,
 	resetCurrentStep,
 	resetLocation,
@@ -10,6 +12,7 @@ import {
 } from '@src/layers/modules/booking/store';
 import { IconButton, Progress, Typography } from '@src/layers/ui';
 import { ROUTES } from '@src/shared/constants';
+import { convertToISO } from '@src/shared/helpers';
 import { useMountEffect } from '@src/shared/hooks';
 import { useUnit } from 'effector-react';
 import { useEffect } from 'react';
@@ -22,11 +25,14 @@ import {
 	resetSelectedCar,
 	setDate,
 } from '../modules/catalog/store';
+import { bookCarFx } from '../modules/orders/store/ordersStore';
 
 export const BookingPage = () => {
 	const currentStep = useUnit($currentStep);
 
 	const date = useUnit($date);
+	const person = useUnit($person);
+	const location = useUnit($location);
 
 	const navigate = useNavigate();
 
@@ -59,7 +65,24 @@ export const BookingPage = () => {
 		},
 		{
 			title: 'Проверка данных',
-			component: <CheckData carName={car?.name} carPrice={car?.price} date={date} />,
+			component: (
+				<CheckData
+					carName={car?.name}
+					carPrice={car?.price}
+					date={date}
+					book={() =>
+						bookCarFx({
+							carId: car?.id,
+							...date.range,
+							...person,
+							...location,
+							endDate: date.range.to.getTime(),
+							startDate: date.range.from.getTime(),
+							birthdate: convertToISO(person.birthdate),
+						})
+					}
+				/>
+			),
 		},
 	];
 

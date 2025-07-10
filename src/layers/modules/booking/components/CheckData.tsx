@@ -11,9 +11,10 @@ interface CheckDataProps {
 	carName: string;
 	carPrice: number;
 	date: DateStore;
+	book: () => void;
 }
 
-export const CheckData = ({ carName, carPrice, date }: CheckDataProps) => {
+export const CheckData = ({ carName, carPrice, date, book }: CheckDataProps) => {
 	const { pickupLocation, returnLocation } = useUnit($location);
 	const person = useUnit($person);
 
@@ -112,7 +113,7 @@ export const CheckData = ({ carName, carPrice, date }: CheckDataProps) => {
 				<Button size="lg" variant="outlined" onClick={() => decrementStep()}>
 					Назад
 				</Button>
-				<Button size="lg" variant="contained" onClick={() => {}}>
+				<Button size="lg" variant="contained" onClick={book}>
 					Забронировать
 				</Button>
 			</div>
