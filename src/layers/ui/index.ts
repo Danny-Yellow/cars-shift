@@ -8,6 +8,7 @@ export * from './InputOTP';
 export * from './Label';
 export * from './Link';
 export * from './Popover';
+export * from './Progress';
 export * from './Select';
 export * from './Slider';
 export * from './TextField';

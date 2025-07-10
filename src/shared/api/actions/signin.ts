@@ -1,10 +1,10 @@
-import type { Signin, User } from '@src/shared/types';
+import type { ProfileUser, Signin } from '@src/shared/types/entities';
 
 import { api } from '../instance';
 
 export interface SigninResponse extends DefaultResponse {
 	token: string;
-	user: User;
+	user: ProfileUser;
 }
 
 export const signin = ({ config, data }: AxiosRequestConfig<undefined, Signin>) =>

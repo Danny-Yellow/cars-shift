@@ -8,14 +8,10 @@ import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router';
 
+import { TRANSMISSIONS_RU } from '../../constants/car';
 import { $carsList, $hasMore, fetchCarsFx, setNextPage } from '../../store/carsListStore';
 import { showCars } from '../../store/paramsStore';
 import { CarCardSkeleton } from './CarCardSkeleton';
-
-const TRANSMISSIONS_RU = {
-	automatic: 'Автомат',
-	manual: 'Механика',
-};
 
 export const CarsList = () => {
 	const { ref, inView } = useInView();

@@ -2,8 +2,7 @@ import type { RouteObject } from 'react-router';
 
 import { RootLayout } from '@src/layers/components/RootLayout';
 import { AuthTopNavigation } from '@src/layers/modules/session/components';
-import { AuthPage } from '@src/layers/pages/AuthPage';
-import { CatalogPage } from '@src/layers/pages/CatalogPage';
+import { AuthPage, BookingPage, CarPage, CatalogPage } from '@src/layers/pages';
 import { ROUTES } from '@src/shared/constants';
 import { createBrowserRouter, Navigate } from 'react-router';
 
@@ -19,6 +18,14 @@ const routes = [
 					{
 						path: ROUTES.CATALOG,
 						Component: CatalogPage,
+					},
+					{
+						path: ROUTES.CAR_DETAILS,
+						Component: CarPage,
+					},
+					{
+						path: ROUTES.BOOKING,
+						Component: BookingPage,
 					},
 				],
 			},

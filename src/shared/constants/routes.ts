@@ -1,7 +1,8 @@
 export const ROUTES = {
-	CATALOG: 'catalog',
-	CAR_DETAILS: 'cars/:id',
-	PROFILE: 'profile',
-	ORDERS: 'orders',
-	SIGNIN: 'signin',
+	CATALOG: '/catalog',
+	CAR_DETAILS: '/cars/:id',
+	PROFILE: '/profile',
+	ORDERS: '/orders',
+	SIGNIN: '/signin',
+	BOOKING: '/booking',
 };

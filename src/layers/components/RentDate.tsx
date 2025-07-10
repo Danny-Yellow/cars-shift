@@ -1,32 +1,32 @@
+import type { DateStore } from '@src/shared/types';
+import type { ComponentProps } from 'react';
+import type { DateRange } from 'react-day-picker';
+
 import { Calendar as CalendarIcon } from '@src/layers/components/icons';
 import {
+	DatePicker,
 	Popover,
 	PopoverAnchor,
 	PopoverContent,
 	PopoverPortal,
 	PopoverTrigger,
+	Typography,
 } from '@src/layers/ui';
-import { DatePicker } from '@src/layers/ui/DatePicker';
-import { Typography } from '@src/layers/ui/Typography';
-import { declensionDays, getDaysCount, getFormattedDateRange } from '@src/shared/helpers';
-import { useUnit } from 'effector-react';
 
-import { $date, setDate } from '../../store/paramsStore';
+interface RentDateProps extends ComponentProps<'label'> {
+	date: DateStore;
+	setDate: (date: DateRange) => void;
+}
 
-export const RentDate = () => {
-	const date = useUnit($date);
-
+export const RentDate = ({ date, setDate, ...props }: RentDateProps) => {
 	const getTextFieldValue = () => {
-		if (!date?.from || !date?.to) return 'Выберите дату';
+		if (!date?.range) return 'Выберите дату';
 
-		const range = getFormattedDateRange({ from: date?.from, to: date?.to });
-		const daysCount = getDaysCount({ from: date?.from, to: date?.to });
-		const daysDeclension = declensionDays(daysCount);
-		return `${range} (${daysCount} ${daysDeclension})`;
+		return `${date.formattedRange} (${date.daysCount} ${date.daysDeclension})`;
 	};
 
 	return (
-		<label className="w-full">
+		<label className="w-full" {...props}>
 			<Typography className="mb-2" variant="p_14_regular">
 				Дата аренды
 			</Typography>
@@ -40,7 +40,7 @@ export const RentDate = () => {
 				<PopoverAnchor />
 				<PopoverPortal>
 					<PopoverContent className="rounded-md p-4" sideOffset={10}>
-						<DatePicker selected={date} mode="range" onSelect={setDate} />
+						<DatePicker selected={date.range} mode="range" onSelect={setDate} />
 					</PopoverContent>
 				</PopoverPortal>
 			</Popover>

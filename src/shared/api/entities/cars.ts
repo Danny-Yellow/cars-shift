@@ -1,4 +1,4 @@
-import type { BaseCar, Car } from '@src/shared/types/car';
+import type { BaseCar, Car } from '@src/shared/types/entities/car';
 
 import { api } from '../instance';
 

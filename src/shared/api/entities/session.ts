@@ -1,9 +1,9 @@
-import type { User } from '@src/shared/types';
+import type { ProfileUser } from '@src/shared/types/entities';
 
 import { api } from '../instance';
 
 export interface GetSessionResponse extends DefaultResponse {
-	user: User;
+	user: ProfileUser;
 }
 
 export const getSession = ({ config }: AxiosRequestConfig) =>
