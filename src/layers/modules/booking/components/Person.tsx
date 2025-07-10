@@ -15,12 +15,12 @@ export const Person = () => {
 
 	const { Field, handleSubmit } = useForm({
 		defaultValues: {
-			birthdate: person.birthdate ?? '',
+			birthDate: person.birthDate ?? '',
 			comment: person.comment ?? '',
 			email: person.email ?? '',
-			firstname: person.firstname ?? '',
-			lastname: person.lastname ?? '',
-			middlename: person.middlename ?? '',
+			firstName: person.firstName ?? '',
+			lastName: person.lastName ?? '',
+			middleName: person.middleName ?? '',
 			phone: person.phone ?? '',
 		},
 		onSubmit: ({ value }) => {
@@ -51,7 +51,7 @@ export const Person = () => {
 								<Typography variant="p_14_regular" color={errorIsShown ? 'error' : 'primary'}>
 									{label}
 								</Typography>
-								{name === 'birthdate' && (
+								{name === 'birthDate' && (
 									<BirthdateInput
 										value={state.value}
 										hasError={errorIsShown}
@@ -70,7 +70,7 @@ export const Person = () => {
 										placeholder={placeholder}
 									/>
 								)}
-								{name !== 'birthdate' && name !== 'phone' && (
+								{name !== 'birthDate' && name !== 'phone' && (
 									<TextField
 										value={state.value}
 										hasError={errorIsShown}

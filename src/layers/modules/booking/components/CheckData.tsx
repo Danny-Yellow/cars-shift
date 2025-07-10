@@ -67,14 +67,14 @@ export const CheckData = ({ carName, carPrice, date, book }: CheckDataProps) => 
 							ФИО
 						</Typography>
 						<Typography variant="p_16_regular">
-							{person.firstname} {person.lastname} {person.middlename}
+							{person.firstName} {person.lastName} {person.middleName}
 						</Typography>
 					</div>
 					<div className={group}>
 						<Typography variant="p_12_regular" color="secondary">
 							Дата рождения
 						</Typography>
-						<Typography variant="p_16_regular">{person.birthdate}</Typography>
+						<Typography variant="p_16_regular">{person.birthDate}</Typography>
 					</div>
 					<div className={group}>
 						<Typography variant="p_12_regular" color="secondary">

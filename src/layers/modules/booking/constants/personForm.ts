@@ -4,22 +4,22 @@ import type { BookingUser } from '@src/shared/types/entities/user';
 export const personFields: Field<keyof BookingUser>[] = [
 	{
 		label: 'Фамилия',
-		name: 'lastname',
+		name: 'lastName',
 		placeholder: 'Фамилия',
 	},
 	{
 		label: 'Имя',
-		name: 'firstname',
+		name: 'firstName',
 		placeholder: 'Имя',
 	},
 	{
 		label: 'Отчество',
-		name: 'middlename',
+		name: 'middleName',
 		placeholder: 'Отчество',
 	},
 	{
 		label: 'Дата рождения',
-		name: 'birthdate',
+		name: 'birthDate',
 	},
 	{
 		label: 'Номер телефона',

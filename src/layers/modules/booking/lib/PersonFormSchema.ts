@@ -1,14 +1,14 @@
 import { userPipes } from '@src/shared/lib/pipes/user';
 import * as v from 'valibot';
 
-const { firstname, lastname, middlename, phone, email, birthdate } = userPipes;
+const { firstname, lastname, middlename, phone, email, birthDate } = userPipes;
 
 export const PersonalFormSchema = v.object({
-	firstname,
-	lastname,
-	middlename,
+	firstName: firstname,
+	lastName: lastname,
+	middleName: middlename,
 	phone,
 	email,
-	birthdate,
+	birthDate,
 	comment: v.string('Некорректный формат'),
 });

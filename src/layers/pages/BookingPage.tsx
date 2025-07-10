@@ -12,7 +12,7 @@ import {
 } from '@src/layers/modules/booking/store';
 import { IconButton, Progress, Typography } from '@src/layers/ui';
 import { ROUTES } from '@src/shared/constants';
-import { convertToISO } from '@src/shared/helpers';
+import { convertToISO, stripNonDigits } from '@src/shared/helpers';
 import { useMountEffect } from '@src/shared/hooks';
 import { useUnit } from 'effector-react';
 import { useEffect } from 'react';
@@ -72,13 +72,14 @@ export const BookingPage = () => {
 					date={date}
 					book={() =>
 						bookCarFx({
-							carId: car?.id,
 							...date.range,
 							...person,
 							...location,
+							carId: car?.id,
 							endDate: date.range.to.getTime(),
 							startDate: date.range.from.getTime(),
-							birthdate: convertToISO(person.birthdate),
+							birthDate: convertToISO(person.birthDate),
+							phone: stripNonDigits(person.phone),
 						})
 					}
 				/>
