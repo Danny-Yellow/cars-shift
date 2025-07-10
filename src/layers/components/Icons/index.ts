@@ -10,6 +10,7 @@ export * from './Exit';
 export * from './Logo';
 export * from './Pencil';
 export * from './Settings';
+export * from './Success';
 export * from './Sun';
 export * from './Time';
 export * from './User';

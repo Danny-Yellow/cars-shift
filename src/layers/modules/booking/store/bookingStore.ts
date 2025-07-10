@@ -25,12 +25,12 @@ export const $location = createStore<Location>({
 	.reset(resetLocation);
 
 export const $person = createStore<BookingUser>({
-	birthdate: '',
+	birthDate: '',
 	comment: '',
 	email: '',
-	firstname: '',
-	lastname: '',
-	middlename: '',
+	firstName: '',
+	lastName: '',
+	middleName: '',
 	phone: '',
 })
 	.on(setPerson, (_, person) => person)

@@ -54,7 +54,7 @@ export const userPipes = {
 		v.email('Некорректный формат'),
 	),
 	city: v.pipe(v.string('Некорректный формат'), v.nonEmpty('Поле является обязательным')),
-	birthdate: v.pipe(
+	birthDate: v.pipe(
 		v.string('Некорректный формат'),
 		v.nonEmpty('Поле является обязательным'),
 		v.length(10, 'Некорректный формат даты'),

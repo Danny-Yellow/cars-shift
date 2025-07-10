@@ -48,9 +48,15 @@ export const Car = () => {
 				<div className="mb-4 w-full max-w-[500px]">
 					<img alt={car.name} className="rounded-2xl" src={ENV.BASE_URL + car.media[0]?.url} />
 					<div className="grid grid-cols-3 justify-center gap-4">
-						<img alt={car.name} className="rounded-2xl" src={ENV.BASE_URL + car.media[1]?.url} />
-						<img alt={car.name} className="rounded-2xl" src={ENV.BASE_URL + car.media[2]?.url} />
-						<img alt={car.name} className="rounded-2xl" src={ENV.BASE_URL + car.media[3]?.url} />
+						{car.media[1]?.url && (
+							<img alt={car.name} className="rounded-2xl" src={ENV.BASE_URL + car.media[1]?.url} />
+						)}
+						{car.media[2]?.url && (
+							<img alt={car.name} className="rounded-2xl" src={ENV.BASE_URL + car.media[2]?.url} />
+						)}
+						{car.media[3]?.url && (
+							<img alt={car.name} className="rounded-2xl" src={ENV.BASE_URL + car.media[3]?.url} />
+						)}
 					</div>
 				</div>
 				<article className="w-full max-w-[420px]">

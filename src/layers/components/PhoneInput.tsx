@@ -8,5 +8,5 @@ type CustomPatterFormatProps = Omit<PatternFormatProps, 'customInput' | 'format'
 	ComponentProps<typeof TextField>;
 
 export const PhoneInput = ({ ...props }: CustomPatterFormatProps) => (
-	<PatternFormat mask="_" customInput={TextField} format="+7 (###) ### ##-##" {...props} />
+	<PatternFormat mask="_" customInput={TextField} format="+7 (9##) ### ##-##" {...props} />
 );

@@ -11,8 +11,12 @@ export interface ProfileUser extends BaseUser {
 	phone: string;
 }
 
-export interface BookingUser extends BaseUser {
-	birthdate: string;
+export interface BookingUser {
+	birthDate: string;
 	comment: string;
 	email: string;
+	firstName: string;
+	lastName: string;
+	middleName: string;
+	phone: string;
 }
