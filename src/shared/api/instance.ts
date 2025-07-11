@@ -15,3 +15,14 @@ api.interceptors.request.use(
 	},
 	(error) => Promise.reject(error),
 );
+
+export const apiAddress = axios.create({ baseURL: ENV.GEO_URL });
+
+apiAddress.interceptors.request.use(
+	(request) => {
+		const token = ENV.GEO_TOKEN;
+		request.headers.Authorization = `Token ${token}`;
+		return request;
+	},
+	(error) => Promise.reject(error),
+);

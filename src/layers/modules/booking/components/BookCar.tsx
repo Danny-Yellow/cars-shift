@@ -2,7 +2,13 @@ import type { DateStore } from '@src/shared/types';
 import type { DateRange } from 'react-day-picker';
 
 import { RentDate } from '@src/layers/components';
-import { Button, Form, Label, TextField, Typography } from '@src/layers/ui';
+import { FieldWithHints } from '@src/layers/components/FieldWithHints';
+import {
+	Button,
+	Form,
+	Label,
+	Typography,
+} from '@src/layers/ui';
 import { useForm } from '@tanstack/react-form';
 import { useUnit } from 'effector-react';
 import { useState } from 'react';
@@ -12,11 +18,13 @@ import { bookCarFields } from '../constants/bookCarForm';
 import { $location, incrementStep, setLocation } from '../store';
 
 interface BookCarProps {
+	addresses: { value: string }[];
 	date: DateStore;
+	onChangeField: (field: string, value: string) => void;
 	setDate: (date: DateRange) => void;
 }
 
-export const BookCar = ({ date, setDate }: BookCarProps) => {
+export const BookCar = ({ date, setDate, onChangeField, addresses }: BookCarProps) => {
 	const [continueIsClicked, setContinueIsClicked] = useState(false);
 	const navigate = useNavigate();
 
@@ -53,13 +61,19 @@ export const BookCar = ({ date, setDate }: BookCarProps) => {
 								<Typography variant="p_14_regular" color={errorIsShown ? 'error' : 'primary'}>
 									{label}
 								</Typography>
-								<TextField
+								<FieldWithHints
+									hints={addresses}
 									value={state.value}
 									onChange={(event) => {
 										handleChange(event.target.value);
+										onChangeField(name, event.target.value);
+									}}
+									onHintSelect={(value) => {
+										handleChange(value);
 									}}
 									placeholder={placeholder}
 								/>
+
 								{continueIsClicked && !!state.meta.errors.length && (
 									<Typography variant="p_14_regular" color="error">
 										{error}

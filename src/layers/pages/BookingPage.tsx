@@ -12,12 +12,13 @@ import {
 } from '@src/layers/modules/booking/store';
 import { IconButton, Progress, Typography } from '@src/layers/ui';
 import { ROUTES } from '@src/shared/constants';
-import { convertToISO, stripNonDigits } from '@src/shared/helpers';
+import { convertToISO, debounce, stripNonDigits } from '@src/shared/helpers';
 import { useMountEffect } from '@src/shared/hooks';
 import { useUnit } from 'effector-react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
+import { $addresses, fetchAddressesFx } from '../modules/address/addressStore';
 import {
 	$date,
 	$selectedCar,
@@ -33,6 +34,7 @@ export const BookingPage = () => {
 	const date = useUnit($date);
 	const person = useUnit($person);
 	const location = useUnit($location);
+	const addresses = useUnit($addresses);
 
 	const navigate = useNavigate();
 
@@ -54,10 +56,23 @@ export const BookingPage = () => {
 		};
 	}, []);
 
+	const handleChangeField = (field: string, value: string) => {
+		debounce(() => {
+			fetchAddressesFx(value);
+		}, 500);
+	};
+
 	const stepsMap = [
 		{
 			title: 'Бронирование авто',
-			component: <BookCar date={date} setDate={setDate} />,
+			component: (
+				<BookCar
+					addresses={addresses}
+					date={date}
+					setDate={setDate}
+					onChangeField={handleChangeField}
+				/>
+			),
 		},
 		{
 			title: 'Введите ваши данные',
