@@ -6,7 +6,7 @@ import { RouterProvider } from 'react-router';
 import { ModalProvider } from './layers/ui';
 import { router } from './router/router';
 import { LOCAL_STORAGE_KEYS } from './shared/constants';
-import { initTheme } from './shared/utils';
+import { initTheme } from './shared/helpers';
 
 import './style.css';
 

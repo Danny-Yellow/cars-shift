@@ -1,8 +1,8 @@
 import { BrowserView } from '@src/layers/components';
 import { Button, Typography } from '@src/layers/ui';
 import { ENV, ROUTES } from '@src/shared/constants';
+import { formatNumberWithSpaces } from '@src/shared/helpers';
 import { useDevice, useMountEffect } from '@src/shared/hooks';
-import { formatNumberWithSpaces } from '@src/shared/utils';
 import { useUnit } from 'effector-react';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';

@@ -2,8 +2,8 @@ import type { CarsQuery } from '@src/shared/api';
 import type { Car } from '@src/shared/types/entities';
 
 import { getCars } from '@src/shared/api';
+import { debounce } from '@src/shared/helpers';
 import { createPagination } from '@src/shared/store';
-import { debounce } from '@src/shared/utils';
 import { createEffect, createEvent, createStore, sample } from 'effector';
 
 import { $filter, $price, $search, changeSearch, showCars } from './paramsStore';
