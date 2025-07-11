@@ -26,7 +26,7 @@ export const $carsList = createStore<Car[]>([])
 	.reset(resetCarsList);
 
 changeSearch.watch((value) => {
-	debounce(() => debouncedChangeSearch(value), 5000);
+	debounce(() => debouncedChangeSearch(value), 500);
 });
 
 sample({

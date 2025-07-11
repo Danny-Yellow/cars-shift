@@ -33,6 +33,9 @@ export const ProfileForm = ({ onSubmit }: { onSubmit: (profile: UpdateProfile) =
 				handleSubmit();
 			}}
 		>
+			<Typography tag="h1" variant="h1">
+				Профиль
+			</Typography>
 			{PROFILE_FIELDS.map(({ label, name, placeholder }) => (
 				<Field
 					key={name}

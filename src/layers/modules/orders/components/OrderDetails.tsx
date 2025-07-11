@@ -1,34 +1,12 @@
-import {
-	$orderDetails,
-	getOrderDetailsFx,
-	resetOrdersList,
-} from '@src/layers/modules/orders/store/ordersStore';
+import type { Rent } from '@src/shared/types';
+
 import { Button, PropertyColumn, PropertyItem, Typography } from '@src/layers/ui';
-import { useUnit } from 'effector-react';
-import { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate } from 'react-router';
 
 import { OrderCard } from './OrderCard';
 
-export const OrderDetails = () => {
-	const [order, isLoading] = useUnit([$orderDetails, getOrderDetailsFx.pending]);
-
-	const { id } = useParams();
-
+export const OrderDetails = ({ order }: { order: Rent }) => {
 	const navigate = useNavigate();
-
-	useEffect(() => {
-		resetOrdersList();
-		getOrderDetailsFx(id);
-	}, [id]);
-
-	if (isLoading) {
-		return <div>Loading...</div>;
-	}
-
-	if (!order) {
-		return null;
-	}
 
 	return (
 		<div>

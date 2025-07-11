@@ -23,7 +23,11 @@ export const OrdersHistoryPage = () => {
 	}
 
 	if (isLoading) {
-		return <Spinner />;
+		return (
+			<div className="mt-20 flex justify-center">
+				<Spinner />
+			</div>
+		);
 	}
 
 	if (!orders?.length) {

@@ -11,22 +11,21 @@ import { useNavigate } from 'react-router';
 import { bookCarFields } from '../constants/bookCarForm';
 import { $location, incrementStep, setLocation } from '../store';
 
-export const BookCar = ({
-	date,
-	setDate,
-}: {
+interface BookCarProps {
 	date: DateStore;
 	setDate: (date: DateRange) => void;
-}) => {
+}
+
+export const BookCar = ({ date, setDate }: BookCarProps) => {
 	const [continueIsClicked, setContinueIsClicked] = useState(false);
 	const navigate = useNavigate();
 
-	const loacation = useUnit($location);
+	const location = useUnit($location);
 
 	const { Field, handleSubmit } = useForm({
 		defaultValues: {
-			pickupLocation: loacation.pickupLocation ?? '',
-			returnLocation: loacation.returnLocation ?? '',
+			pickupLocation: location.pickupLocation ?? '',
+			returnLocation: location.returnLocation ?? '',
 		},
 		onSubmit: ({ value }) => {
 			setLocation(value);
