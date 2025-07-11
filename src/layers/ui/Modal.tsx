@@ -38,6 +38,12 @@ export const Modal = ({ isOpen, children }: { isOpen: boolean; children: ReactNo
 		isOpen ? showModal(children) : hideModal();
 	}, [isOpen]);
 
+	useEffect(() => {
+		return () => {
+			hideModal();
+		};
+	}, []);
+
 	return null;
 };
 

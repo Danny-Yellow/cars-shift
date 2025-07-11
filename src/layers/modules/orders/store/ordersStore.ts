@@ -58,6 +58,6 @@ export const $cancelOrderModal = createStore({ isOpen: false })
 		isOpen: false,
 	}));
 
-export const $cancelOrder = createStore({ isSuccess: false })
+export const $cancelOrder = createStore({ isSuccess: null })
 	.on(cancelOrderFx.doneData, (_, { success }) => ({ isSuccess: success }))
 	.reset(resetCancelOrder);

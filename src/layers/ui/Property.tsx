@@ -9,6 +9,6 @@ export const PropertyColumn = (props: ComponentProps<'div'>) => (
 export const PropertyItem = ({ property, className, children }: ComponentProps<'div'>) => (
 	<div className={clsx(className, 'grid gap-0.5')}>
 		<p className="text-xs text-gray-50">{property}</p>
-		<p>{children}</p>
+		<span>{children}</span>
 	</div>
 );

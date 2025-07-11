@@ -38,7 +38,6 @@ export const CancelOrderModal = ({ orderId }: CancelOrderModalProps) => {
 
 		if (isSuccess === false) {
 			// open toast
-			console.error('error');
 		}
 	}, [isSuccess]);
 

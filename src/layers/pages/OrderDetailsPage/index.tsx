@@ -1,7 +1,6 @@
 import { OrderDetails } from '@src/layers/modules/orders/components';
 import {
 	$orderDetails,
-	closeCancelOrderModal,
 	getOrderDetailsFx,
 	resetCancelOrder,
 	resetOrderDetails,
@@ -24,7 +23,6 @@ export const OrderDetailsPage = () => {
 		return () => {
 			resetCancelOrder();
 			resetOrderDetails();
-			closeCancelOrderModal();
 		};
 	}, []);
 
