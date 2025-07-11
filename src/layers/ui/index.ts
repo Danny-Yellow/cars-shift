@@ -14,6 +14,7 @@ export * from './Progress';
 export * from './Property';
 export * from './Select';
 export * from './Slider';
+export * from './Spinner';
 export * from './Table';
 export * from './TextField';
 export * from './Toggle';

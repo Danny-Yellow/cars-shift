@@ -3,6 +3,7 @@ import type { ComponentProps } from 'react';
 
 import { Card, Indicator, PropertyColumn, PropertyItem, Typography } from '@src/layers/ui';
 import { getFormattedDateRange } from '@src/shared/helpers';
+import clsx from 'clsx';
 
 interface RentCardProps extends ComponentProps<typeof Card> {
 	carName: string;
@@ -13,7 +14,7 @@ interface RentCardProps extends ComponentProps<typeof Card> {
 	status: RentStatus;
 }
 
-export const OrderCard = ({ children, ...props }: RentCardProps) => {
+export const OrderCard = ({ children, className, ...props }: RentCardProps) => {
 	const date = getFormattedDateRange({
 		from: new Date(props.startDate),
 		to: new Date(props.endDate),
@@ -35,7 +36,7 @@ export const OrderCard = ({ children, ...props }: RentCardProps) => {
 	};
 
 	return (
-		<Card className="px-12 py-6" color="transparent" outlined {...props}>
+		<Card className={clsx('px-12 py-6', className)} color="transparent" outlined {...props}>
 			<PropertyColumn>
 				<PropertyItem property="Статус">{status[props.status]}</PropertyItem>
 				<PropertyItem property="Автомобиль">{props.carName}</PropertyItem>

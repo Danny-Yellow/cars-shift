@@ -11,7 +11,8 @@ import {
 	TableCell,
 	TableHead,
 	TableHeader,
-	TableRow, Typography 
+	TableRow,
+	Typography,
 } from '@src/layers/ui';
 import { ROUTES } from '@src/shared/constants';
 import { STATUS_CODE, STATUS_INDICATOR } from '@src/shared/constants/status';
@@ -82,7 +83,7 @@ export const OrdersHistory = ({ orders }: { orders: Rent[] }) => {
 									</div>
 								</TableCell>
 								<TableCell>
-									<Link to={ROUTES.ORDER_DETAILS.replace(':id', order.carInfo.id)}>
+									<Link to={ROUTES.ORDER_DETAILS.replace(':id', order._id)}>
 										<Typography underline variant="p_12_regular" color="secondary">
 											Подробнее
 										</Typography>

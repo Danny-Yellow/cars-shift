@@ -7,6 +7,7 @@ import {
 	BookingPage,
 	CarPage,
 	CatalogPage,
+	OrderDetailsPage,
 	OrderRequestPage,
 	OrdersHistoryPage,
 	ProfilePage,
@@ -59,7 +60,11 @@ const routes = [
 					},
 					{
 						path: ROUTES.PROFILE,
-						element: <ProfilePage />,
+						Component: ProfilePage,
+					},
+					{
+						path: ROUTES.ORDER_DETAILS,
+						Component: OrderDetailsPage,
 					},
 				],
 			},
