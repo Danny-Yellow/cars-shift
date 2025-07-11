@@ -1,13 +1,17 @@
 import { OrderDetails } from '@src/layers/modules/orders/components';
 import {
 	$orderDetails,
+	closeCancelOrderModal,
 	getOrderDetailsFx,
-	resetOrdersList,
+	resetCancelOrder,
+	resetOrderDetails,
 } from '@src/layers/modules/orders/store';
 import { Spinner } from '@src/layers/ui';
 import { useUnit } from 'effector-react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
+
+import { CancelOrderModal } from './CancelOrderModal';
 
 export const OrderDetailsPage = () => {
 	const [order, isLoading] = useUnit([$orderDetails, getOrderDetailsFx.pending]);
@@ -15,9 +19,14 @@ export const OrderDetailsPage = () => {
 	const { id } = useParams();
 
 	useEffect(() => {
-		resetOrdersList();
 		getOrderDetailsFx(id);
-	}, [id]);
+
+		return () => {
+			resetCancelOrder();
+			resetOrderDetails();
+			closeCancelOrderModal();
+		};
+	}, []);
 
 	if (!order) {
 		return null;
@@ -31,5 +40,10 @@ export const OrderDetailsPage = () => {
 		);
 	}
 
-	return <OrderDetails order={order} />;
+	return (
+		<>
+			<OrderDetails order={order} />
+			<CancelOrderModal orderId={id} />
+		</>
+	);
 };

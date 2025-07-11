@@ -3,6 +3,7 @@ import type { Rent } from '@src/shared/types';
 import { Button, PropertyColumn, PropertyItem, Typography } from '@src/layers/ui';
 import { useNavigate } from 'react-router';
 
+import { openCancelOrderModal } from '../store';
 import { OrderCard } from './OrderCard';
 
 export const OrderDetails = ({ order }: { order: Rent }) => {
@@ -35,7 +36,9 @@ export const OrderDetails = ({ order }: { order: Rent }) => {
 					<Button variant="outlined" onClick={() => navigate(-1)}>
 						Назад
 					</Button>
-					<Button variant="contained">Отменить</Button>
+					<Button variant="contained" onClick={() => openCancelOrderModal()}>
+						Отменить
+					</Button>
 				</div>
 			</OrderCard>
 		</div>

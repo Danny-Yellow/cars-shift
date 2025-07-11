@@ -9,6 +9,7 @@ export * from './Indicator';
 export * from './InputOTP';
 export * from './Label';
 export * from './Link';
+export * from './Modal';
 export * from './Popover';
 export * from './Progress';
 export * from './Property';

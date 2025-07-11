@@ -3,6 +3,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router';
 
+import { ModalProvider } from './layers/ui';
 import { router } from './router/router';
 import { LOCAL_STORAGE_KEYS } from './shared/constants';
 import { initTheme } from './shared/utils';
@@ -20,7 +21,9 @@ const init = async () => {
 
 	createRoot(document.getElementById('root')!).render(
 		<StrictMode>
-			<RouterProvider router={router} />
+			<ModalProvider>
+				<RouterProvider router={router} />
+			</ModalProvider>
 		</StrictMode>,
 	);
 };
