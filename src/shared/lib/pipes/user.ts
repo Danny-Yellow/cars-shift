@@ -9,9 +9,8 @@ import {
 } from '@src/shared/helpers';
 import * as v from 'valibot';
 
-function incorrectFormat(value: string) {
-	return ![!containsUppercaseNotAtStart(value), validHyphenAndApostrophe(value)].includes(false);
-}
+const incorrectFormat = (value: string) =>
+	![!containsUppercaseNotAtStart(value), validHyphenAndApostrophe(value)].includes(false);
 
 export const userPipes = {
 	firstname: v.pipe(

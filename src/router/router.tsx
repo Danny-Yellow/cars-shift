@@ -2,7 +2,16 @@ import type { RouteObject } from 'react-router';
 
 import { RootLayout } from '@src/layers/components/RootLayout';
 import { AuthTopNavigation } from '@src/layers/modules/session/components';
-import { AuthPage, BookingPage, CarPage, CatalogPage, OrderRequestPage, ProfilePage } from '@src/layers/pages';
+import {
+	AuthPage,
+	BookingPage,
+	CarPage,
+	CatalogPage,
+	OrderDetailsPage,
+	OrderRequestPage,
+	OrdersHistoryPage,
+	ProfilePage,
+} from '@src/layers/pages';
 import { ROUTES } from '@src/shared/constants';
 import { createBrowserRouter, Navigate } from 'react-router';
 
@@ -46,12 +55,16 @@ const routes = [
 				element: <ProtectedRoute access="onlyAuth" />,
 				children: [
 					{
-						path: ROUTES.ORDERS,
-						element: <div>Orders</div>,
+						path: ROUTES.ORDERS_HISTORY,
+						Component: OrdersHistoryPage,
 					},
 					{
 						path: ROUTES.PROFILE,
-						element: <ProfilePage />,
+						Component: ProfilePage,
+					},
+					{
+						path: ROUTES.ORDER_DETAILS,
+						Component: OrderDetailsPage,
 					},
 				],
 			},

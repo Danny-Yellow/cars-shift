@@ -8,11 +8,11 @@ import { useUnit } from 'effector-react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
-import { $order } from '../store/ordersStore';
+import { $orderRequest } from '../store/ordersStore';
 import { OrderCard } from './OrderCard';
 
 export const OrderRequest = () => {
-	const rent = useUnit($order);
+	const rent = useUnit($orderRequest);
 	const navigate = useNavigate();
 
 	const { isMobile } = useDevice();
