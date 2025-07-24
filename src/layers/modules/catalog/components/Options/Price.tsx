@@ -11,7 +11,7 @@ export const Price = () => {
 			<Typography variant="p_14_regular">Стоимость</Typography>
 			<Slider
 				max={10000}
-				min={3000}
+				min={1000}
 				step={100}
 				value={[price]}
 				onValueChange={(value) => setPrice(value[0])}
@@ -23,7 +23,7 @@ export const Price = () => {
 			</Slider>
 			<div className="flex items-center justify-between gap-2">
 				<Typography variant="p_12_regular" color="secondary">
-					3 000 ₽
+					1 000 ₽
 				</Typography>
 				{price && (
 					<Typography variant="p_12_regular" color="primary">

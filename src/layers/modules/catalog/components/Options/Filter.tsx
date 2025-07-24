@@ -38,7 +38,7 @@ export const Filter = ({ onShow }: FilterProps) => {
 
 	return (
 		<>
-			<div className="xs:grid-cols-1 grid grid-cols-2 gap-6">
+			<div className="xs:grid-cols-1 grid grid-cols-2 gap-6 p-6">
 				<Label>
 					<Typography variant="p_14_regular">Марка</Typography>
 					<Select

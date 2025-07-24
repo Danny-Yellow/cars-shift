@@ -74,7 +74,7 @@ export const SelectContent = ({
 		<RadixSelect.Content
 			className={clsx(
 				className,
-				'animate-in fade-in-0 slide-in-from-top-2 border-gray-70 mt-2 w-[var(--radix-select-trigger-width)] rounded-lg border-1 bg-white duration-200 dark:bg-black',
+				'animate-in fade-in-0 slide-in-from-top-2 border-gray-70 mt-2 w-[var(--radix-select-trigger-width)] rounded-lg border-1 bg-white shadow-2xl duration-200 dark:bg-black',
 			)}
 			position={position}
 			{...props}

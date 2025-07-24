@@ -62,7 +62,7 @@ export const Options = ({ className, ...props }: ComponentProps<'div'>) => {
 					style={{
 						width: 'var(--radix-popover-trigger-width)',
 					}}
-					className="border-gray-70 mt-2 rounded-2xl border-1 bg-white p-6 dark:bg-black"
+					className="border-gray-70 mt-2 rounded-2xl border-1 bg-white dark:bg-black"
 				>
 					<Filter onShow={() => setOpen(false)} />
 				</PopoverContent>

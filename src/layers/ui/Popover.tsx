@@ -19,7 +19,7 @@ export const PopoverContent = ({
 	...props
 }: ComponentProps<typeof RadixPopover.Content>) => (
 	<RadixPopover.Content
-		className={clsx('border-gray-70 border-1 bg-white p-4 dark:bg-black', className)}
+		className={clsx('border-gray-70 border-1 bg-white p-4 shadow-2xl dark:bg-black', className)}
 		{...props}
 	/>
 );
