@@ -5,9 +5,8 @@ export const useMountEffect = (effect: () => void, deps: unknown[]) => {
 
 	useEffect(() => {
 		if (isInitialMount.current) {
-			isInitialMount.current = false;
-		} else {
 			effect();
+			isInitialMount.current = false;
 		}
 	}, deps);
 };

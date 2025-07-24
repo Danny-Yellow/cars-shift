@@ -8,7 +8,7 @@ export const createPagination = (limit: number = 6) => {
 		.on(setNextPage, (state) => ({ ...state, page: state.page + 1 }))
 		.on(resetPagination, () => ({ page: 1, limit }));
 
-	const $hasMore = createStore(true);
+	const $hasMore = createStore(false);
 
 	return {
 		setNextPage,

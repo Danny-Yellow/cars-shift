@@ -13,7 +13,7 @@ import {
 	ProfilePage,
 } from '@src/layers/pages';
 import { ROUTES } from '@src/shared/constants';
-import { createBrowserRouter, Navigate } from 'react-router';
+import { createHashRouter, Navigate } from 'react-router';
 
 import { ProtectedRoute } from './ProtectedRoute';
 
@@ -76,4 +76,4 @@ const routes = [
 	},
 ] satisfies RouteObject[];
 
-export const router = createBrowserRouter(routes);
+export const router = createHashRouter(routes);
