@@ -44,10 +44,14 @@ export const Car = () => {
 					</Link>
 				</nav>
 			</BrowserView>
-			<div className="mt-6 flex gap-10">
-				<div className="mb-4 w-full max-w-[500px]">
-					<img alt={car.name} className="rounded-2xl" src={ENV.BASE_URL + car.media[0]?.url} />
-					<div className="grid grid-cols-3 justify-center gap-4">
+			<div className="xs:grid mt-6 flex gap-10">
+				<div className="xs:max-w-full mb-4 w-full max-w-[500px]">
+					<img
+						alt={car.name}
+						className="xs:max-h-56 m-auto rounded-2xl"
+						src={ENV.BASE_URL + car.media[0]?.url}
+					/>
+					<div className="grid grid-cols-3 items-center justify-center gap-4">
 						{car.media[1]?.url && (
 							<img alt={car.name} className="rounded-2xl" src={ENV.BASE_URL + car.media[1]?.url} />
 						)}
@@ -59,7 +63,7 @@ export const Car = () => {
 						)}
 					</div>
 				</div>
-				<article className="w-full max-w-[420px]">
+				<article className="xs:max-w-full w-full max-w-[420px]">
 					<Typography className="mb-8" tag="h2" variant="h1">
 						{car.name}
 					</Typography>

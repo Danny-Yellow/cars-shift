@@ -15,7 +15,7 @@ export default (env: EnvVariables): webpack.Configuration => {
 	};
 
 	const options = {
-		port: env.port ?? 3000,
+		port: env.port ?? 8000,
 		mode: env.mode ?? 'development',
 	};
 

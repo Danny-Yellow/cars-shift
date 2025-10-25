@@ -4,6 +4,8 @@
 
 :root {
 	scrollbar-gutter: stable;
+	font-size: min(3.5vw, 16px);
+	line-height: min(3.5vw, 16px);
 }
 
 html {
@@ -27,8 +29,9 @@ html {
 	--color-gray-30: oklch(0.368 0.0334 257.1);
 
 	--animate-blink: blink 1s infinite;
-	--animate-popover-slide-down-in: popover-slide-down-in 0.25s cubic-bezier(0.4,0,0.2,1) forwards;
-	--animate-popover-slide-down-out: popover-slide-down-out 0.18s cubic-bezier(0.4,0,0.2,1) forwards;
+	--animate-popover-slide-down-in: popover-slide-down-in 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+	--animate-popover-slide-down-out: popover-slide-down-out 0.18s cubic-bezier(0.4, 0, 0.2, 1)
+		forwards;
 
 	@keyframes popover-slide-down-in {
 		0% {

@@ -5,7 +5,7 @@ import { cva } from 'class-variance-authority';
 import clsx from 'clsx';
 
 const buttonStyles = cva(
-	'inline-flex cursor-pointer items-center justify-center rounded-2xl py-4 text-center font-semibold',
+	'xs:rounded-xl inline-flex cursor-pointer items-center justify-center rounded-2xl py-4 text-center font-semibold',
 	{
 		variants: {
 			variant: {

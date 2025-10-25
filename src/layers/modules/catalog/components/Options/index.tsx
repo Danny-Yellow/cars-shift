@@ -61,7 +61,6 @@ export const Options = ({ className, ...props }: ComponentProps<'div'>) => {
 					width: 'var(--radix-popover-trigger-width)',
 				}}
 				className="mt-2 rounded-2xl"
-				forceMount
 			>
 				<Filter onShow={() => setOpen(false)} />
 			</PopoverContent>
