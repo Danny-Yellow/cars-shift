@@ -8,7 +8,6 @@ import {
 	Popover,
 	PopoverAnchor,
 	PopoverContent,
-	PopoverPortal,
 	PopoverTrigger,
 	TextField,
 	Typography,
@@ -57,16 +56,15 @@ export const Options = ({ className, ...props }: ComponentProps<'div'>) => {
 					</PopoverTrigger>
 				</div>
 			</PopoverAnchor>
-			<PopoverPortal>
-				<PopoverContent
-					style={{
-						width: 'var(--radix-popover-trigger-width)',
-					}}
-					className="border-gray-70 mt-2 rounded-2xl border-1 bg-white dark:bg-black"
-				>
-					<Filter onShow={() => setOpen(false)} />
-				</PopoverContent>
-			</PopoverPortal>
+			<PopoverContent
+				style={{
+					width: 'var(--radix-popover-trigger-width)',
+				}}
+				className="mt-2 rounded-2xl"
+				forceMount
+			>
+				<Filter onShow={() => setOpen(false)} />
+			</PopoverContent>
 		</Popover>
 	);
 };

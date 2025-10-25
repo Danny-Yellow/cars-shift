@@ -19,7 +19,12 @@ export const PopoverContent = ({
 	...props
 }: ComponentProps<typeof RadixPopover.Content>) => (
 	<RadixPopover.Content
-		className={clsx('border-gray-70 border-1 bg-white p-4 shadow-2xl dark:bg-black', className)}
+		className={clsx(
+			// Анимация выпадения
+			'border-gray-70 border-1 bg-white p-4 shadow-2xl dark:bg-black',
+			'data-[state=open]:animate-popover-slide-down-in data-[state=closed]:animate-popover-slide-down-out',
+			className,
+		)}
 		{...props}
 	/>
 );
